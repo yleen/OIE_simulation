@@ -1,7 +1,7 @@
 """
 @file complete_sequential_addition.py
 @brief Complete sequential addition.
-@author li.zhong.yuan@hotmail
+@author li.zhong.yuan@outlook.com
 @date 2025/2/8
 """
 
