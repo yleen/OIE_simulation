@@ -9,9 +9,3 @@ The "Optional Intervals Event" is a newly introduced concept in theoretical rese
 
 ## Alphaxiv
 <https://www.alphaxiv.org/abs/2504.09471>
-
-## ResearchGate
-<https://www.researchgate.net/publication/390772447_Optional_intervals_event_sequential_operation_and_their_applications_in_physics_computer_science_and_applied_mathematics>
-
-## Cool Papers
-<https://papers.cool/arxiv/2504.09471>
