@@ -1,126 +1,103 @@
 """
 @file optional_intervals_event.py
-@brief: OIE, OIES, AtomOIE, AtomOIES and ErrorOIE
+@brief: oie, OIES, AtomOIE, AtomOIES and ErrorOIE
 @author: li.zhong.yuan@outlook.com
 @date: 2024/11/15
 """
 
 
 from typing import Tuple
-from simulation.OIE.abstract_OIE import AbstractOIE
-from simulation.OIE.optional_intervals_event_set import OIES
-from simulation.OIE._2Tuple_TS import _2TupleTS
-from simulation.OIE._2Tuple_S import _2TupleS
+
+from sqlalchemy import BigInteger
+
+from simulation.base.structure import TwoTupleTS, TwoTupleS
+from simulation.oie.abstract_OIE import AbstractOIE
+from simulation.oie.event_star import EventStarS
+from simulation.oie.optional_intervals_event_set import OIES
+from util.snowflake import gen_snowflake_id
 
 
 class OIE(AbstractOIE):
     """
-    OIE class
+    oie class
     """
-
     def __init__(self,
-                 p_expression: str | None,
-                 p_is_error: bool,
-                 p_is_atom: bool,
-                 p_OP: str | None,
-                 p_meta_OIE_T: Tuple[AbstractOIE,...],
-                 p_meta_Intvl_2tuple_TS: _2TupleTS,
-                 p_Intvl_2tuple_S: _2TupleS):
+                 p_expr: str | None,
+                 p_C: Tuple[AbstractOIE,...],
+                 p_F: TwoTupleTS,
+                 p_I: TwoTupleS,
+                 p_A: EventStarS):
         super().__init__()
+        self._id: BigInteger | None = gen_snowflake_id()
+        self._mapping_event_id: BigInteger | None = None
+        self._expr: str = p_expr
+        self._component_oie_tuple: Tuple[AbstractOIE,...] = p_C
+        self._interval_combinations: TwoTupleTS = p_F
+        self._intervals: TwoTupleS = p_I
+        self._atomic_eventStarS: EventStarS = p_A
 
-        self._expression: str = p_expression
-        self._is_error: bool = p_is_error
-        self._is_atom: bool = p_is_atom
-        self._OP: str = p_OP
-        self._meta_OIE_T: Tuple[AbstractOIE,...] = p_meta_OIE_T
-        self._meta_Intvl_2tuple_TS: _2TupleTS = p_meta_Intvl_2tuple_TS
-        self._Intvl_2tuple_S: _2TupleS = p_Intvl_2tuple_S
+    def get_id(self):
+        return self._id
 
+    def set_mapping_event_id(self, p_event_id: BigInteger):
+        self._mapping_event_id = p_event_id
+
+    def __eq__(self, other) -> bool:
+        return self.C() == other.C() and self.F() == other.F() and self.I() == other.I() and self.A() == other.A()
 
     def __str__(self):
-        format_str =\
-            (f"{{\n" +
-             f"\texpression: {self._expression},\n" +
-             f"\tis_error: {self._is_error},\n" +
-             f"\tis_atom: {self._is_atom},\n" +
-             f"\tmeta_OIE_T: {'[ ' + ', '.join([meta_OIE.getExpression() for meta_OIE in self._meta_OIE_T]) + ' ]'}\n" +
-             f"\tmeta_Intvl_2tuple_TS: {str(self._meta_Intvl_2tuple_TS)}\n" +
-             f"\tIntvl_2tuple_S: {str(self._Intvl_2tuple_S)}\n" +
+        left_bracket: str = '( ' if len(self.C()) > 0 else '('
+        right_bracket: str = ' )' if len(self.C()) > 0 else ')'
+        format_str: str =\
+            (f"{self._expr}, id:{self._id}\n"
+             f"{{\n" +
+             f"\t C: { left_bracket + ', '.join([f"{oie.get_expr()}(id:{oie.get_id()})" for oie in self.C()]) + right_bracket },\n" + # ? todo
+             f"\t F: { str(self.F()) },\n" +
+             f"\t I: { str(self.I()) },\n" +
+             f"\t A: { str(self.A()) }\n" +
              f"}}"
              )
         return format_str
 
+    def get_expr(self) -> str | None:
+        return self._expr
 
-    def getExpression(self) -> str | None:
-        return self._expression
+    def is_void(self):
+        return len(self.C()) == 0 and self.F().empty() and self.I().empty() and self.A().empty()
 
+    def is_atom(self):
+        return len(self.C()) == 0 and not self.F().empty() and not self.I().empty() and not self.A().empty()
 
-    def setExpression(self, p_expression: str):
-        self._expression = p_expression
+    def C(self) -> Tuple[AbstractOIE,...]:
+        return self._component_oie_tuple
 
+    def F(self) -> TwoTupleTS:
+        return self._interval_combinations
 
-    def is_error(self):
-        return self._is_error
+    def I(self):
+        return self._intervals
 
-
-    def setMetaOIES(self, metaOIES: OIES):
-        self._meta_OIE_T = metaOIES
-
-
-    def set_meta_Intvl_2tuple_TS(self, p_meta_Intvl_2tuple_TS: _2TupleTS) -> None:
-        self._meta_Intvl_2tuple_TS = p_meta_Intvl_2tuple_TS
-
-
-    def f_meta_Intvl_2tuple_TS(self) -> _2TupleTS:
-        """
-        (definition 20) Get OIE instance of MetaIntvl2TupleTS instance
-        Returns:
-            (_2TupleTS): The MetaIntvl2TupleTS instance
-        """
-        return self._meta_Intvl_2tuple_TS
-
-
-    def set_Intvl_2tuple_S(self, Intvl2tupleS: _2TupleS):
-        self._Intvl_2tuple_S = Intvl2tupleS
-
-
-    def f_Intvl_2tuple_S(self):
-        """
-        (definition 10) Get OIE instance of Intvl2TupleS instance
-        Returns:
-            (_2TupleS): The Intvl2TupleSS instance
-        """
-        return self._Intvl_2tuple_S
+    def A(self) -> EventStarS:
+        return self._atomic_eventStarS
 
 
 class AtomOIE(OIE):
-    """
-    Atom OIE class
-    """
-
-    def __init__(self, p_expression: str | None, p_Intvl_2tuple_S: _2TupleS):
-        super().__init__(p_expression=p_expression,
-                         p_is_error=False,
-                         p_is_atom=True,
-                         p_OP=None,
-                         p_meta_OIE_T=tuple([]),
-                         p_meta_Intvl_2tuple_TS=_2TupleTS(),
-                         p_Intvl_2tuple_S=p_Intvl_2tuple_S)
+    pass
 
 
-class ErrorOIE(OIE):
+class CompOIE(OIE):
+    pass
+
+
+class VoidOIE(OIE):
     """
-    Error OIE class
+    Error oie class
     """
 
     def __init__(self):
-        super().__init__(p_expression='',
-                         p_is_error=True,
-                         p_is_atom=False,
-                         p_OP=None,
-                         p_meta_OIE_T=tuple([]),
-                         p_meta_Intvl_2tuple_TS=_2TupleTS(),
-                         p_Intvl_2tuple_S=_2TupleS())
-
-    def __str__(self):
-        return super().__str__()
+        super().__init__(p_expr='void_oie',
+                         p_C=(),
+                         p_F=TwoTupleTS(),
+                         p_I=TwoTupleS(),
+                         p_A=EventStarS())
+        self._id = None

@@ -5,21 +5,30 @@
 @date: 2025/2/6
 """
 
-
-from simulation.OIE._2Tuple_S import _2TupleS
-from simulation.OIE._2Tuple_TS import _2TupleTS
+from __future__ import annotations
+from typing import Tuple
+from sqlalchemy import BigInteger
+from simulation.base.structure import TwoTupleS, TwoTupleTS, LiZhongYuanSet
 
 
 class AbstractOIE:
     """
-    An abstract class that defines the interface for OIE
+    An abstract class that defines the interface for oie
     """
-
-    def f_Intvl_2tuple_S(self) -> _2TupleS:
+    def C(self) -> Tuple[AbstractOIE]:
         pass
 
-    def f_meta_Intvl_2tuple_TS(self) -> _2TupleTS:
+    def A(self) -> LiZhongYuanSet:
         pass
 
-    def getExpression(self) -> str:
+    def I(self) -> TwoTupleS:
+        pass
+
+    def F(self) -> TwoTupleTS:
+        pass
+
+    def get_id(self) -> BigInteger:
+        pass
+
+    def get_expr(self) -> str:
         pass
