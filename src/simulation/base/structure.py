@@ -38,7 +38,7 @@ class LiZhongYuanSet:
         if len(self._list) != other.cardinality():
             return False
         for item in self._list:
-            cur_equal = False
+            cur_equal: bool = False
             for other_item in other:
                 if item == other_item:
                     cur_equal = True

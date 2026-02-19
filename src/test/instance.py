@@ -38,6 +38,3 @@ atomOie_2 = OIE(p_expr="atomOie_2",
                 p_F=TwoTupleTS(((1, 3),), ((2, 4),), ((3, 5),)),
                 p_I=TwoTupleS((1, 3), (2, 4), (4, 5)),
                 p_A=EventStarS(atomEventStar_2))
-
-print(atomOie_1)
-print(atomOie_2)

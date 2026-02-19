@@ -5,7 +5,7 @@
 @date 2025/2/8
 """
 from simulation.base.helper import is_wildcard_matched
-from simulation.base.structure import TwoTupleTS
+from simulation.base.structure import TwoTupleTS, TwoTupleSS
 from simulation.oie.optional_intervals_event_set import OIES
 
 
@@ -35,7 +35,7 @@ def remove_infeasible_elements_of_interval_2tupleTS(p_2tupleTS: TwoTupleTS,
         if wildcard_matched:
             continue
 
-        # 1.3 合法, 加入到feasible_Intvl_2tuple_TS
+        # 1.3 合法, 加入到feasible_2tupleTS
         feasible_2tupleTS.add(cur_2tupleT)
 
     # 2 ---------- result ----------
@@ -55,7 +55,7 @@ def get_feasible_2tupleTS(p_oieS: OIES, p_idxT: tuple[int,...]) -> TwoTupleTS:
     wildcard_infeasible_2tupleTS: TwoTupleTS = \
         p_oieS.get_infeasible_2tupleTS(p_idxT)
 
-    interval_2tupleSS = p_oieS.get_interval_2tupleSS()
+    interval_2tupleSS: TwoTupleSS = p_oieS.get_interval_2tupleSS()
     cp_of_2tupleSS: TwoTupleTS = p_oieS.get_CP_of_Interval_2tupleSS(interval_2tupleSS, p_idxT)
 
     feasible_2tupleTS: TwoTupleTS = \

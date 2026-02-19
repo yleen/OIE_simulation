@@ -15,14 +15,14 @@ def get_bound_2tupleS(p_2tupleTS: TwoTupleTS) -> TwoTupleS | None:
     Args:
         p_2tupleTS (TwoTupleTS): source 2-tuple linguistic term set
     Returns:
-        (_2TupleS) bound 2-tuple. Return None if input is None
+        (TwoTupleS) bound 2-tuple. Return None if input is None
     """
     if p_2tupleTS is None:
         return None
     bound_2tupleS_list: List[Tuple[any, any]] = []
     bound_2tuple_map: set = set()
     for cur_2tupleT in p_2tupleTS.list():
-        bound_2tuple = get_bound_2tuple(cur_2tupleT)
+        bound_2tuple: Tuple[float, float] = get_bound_2tuple(cur_2tupleT)
         if bound_2tuple not in bound_2tuple_map:
             bound_2tupleS_list.append(bound_2tuple)
             bound_2tuple_map.add(bound_2tuple)

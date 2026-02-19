@@ -5,20 +5,18 @@
 @date 2025/2/8
 """
 
-
 from typing import Tuple
-
 from simulation.base.helper import get_bound_2tupleS
 from simulation.base.structure import TwoTupleS, TwoTupleTS
 from simulation.oie.abstract_OIE import AbstractOIE
 from simulation.oie.event_star import EventStarS
-from simulation.sequential_operation.helper import (check_idxT_border,
-                                                    has_duplicates,
-                                                    print_finish_line, check_params, check_void_condition_validation,
-                                                    gen_C, gen_A)
+from simulation.sequential_operation.helper import (print_finish_line,
+                                                    check_params,
+                                                    check_void_condition_validation,
+                                                    gen_C,
+                                                    gen_A)
 from simulation.oie.feasible import get_feasible_2tupleTS
-from simulation.oie.optional_intervals_event import (OIE,
-                                                     VoidOIE)
+from simulation.oie.optional_intervals_event import OIE, VoidOIE
 from simulation.oie.optional_intervals_event_set import OIES
 from simulation.sequential_operation.multiplication.complete_asc_order_filtered_2tupleTS import \
     f_complete_asc_order_filtered_2tupleTS
@@ -31,7 +29,6 @@ def complete_sequential_multiplication(p_oieS: OIES,
     Args:
         p_oieS (OIES): A OIES instance
         p_idxT(Tuple[int,...]): Index order of operands
-
     Returns:
         OIE: The result of complete sequential multiplication
     """
@@ -50,9 +47,9 @@ def complete_sequential_multiplication(p_oieS: OIES,
     C: tuple[AbstractOIE, ...] = gen_C(p_oieS, p_idxT)
     A: EventStarS = gen_A(p_oieS, p_idxT)
 
-    oie_res_expr = build_multiplication_res_expr(p_oieS, p_idxT)
+    oie_res_expr: str = build_multiplication_res_expr(p_oieS, p_idxT)
 
-    feasible_2tupleTS = get_feasible_2tupleTS(p_oieS, p_idxT)
+    feasible_2tupleTS: TwoTupleTS = get_feasible_2tupleTS(p_oieS, p_idxT)
     if feasible_2tupleTS.empty():
         print_finish_line()
         return VoidOIE()
@@ -71,7 +68,7 @@ def complete_sequential_multiplication(p_oieS: OIES,
 
 
 def build_multiplication_res_expr(p_oieS: OIES, p_idxT: Tuple[int,...]):
-    oie_res_expr = f"\u2297("
+    oie_res_expr: str = f"\u2297("
     for i in range(len(p_idxT)):
         oie_res_expr += p_oieS[p_idxT[i] - 1].get_expr()
         if i < len(p_idxT) - 1:

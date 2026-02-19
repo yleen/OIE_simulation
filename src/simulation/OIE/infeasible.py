@@ -7,7 +7,6 @@
 
 
 from typing import Any, List, Tuple
-
 from simulation.base.structure import TwoTupleTS
 
 

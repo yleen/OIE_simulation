@@ -29,7 +29,7 @@ class OIE(AbstractOIE):
                  p_A: EventStarS):
         super().__init__()
         self._id: BigInteger | None = gen_snowflake_id()
-        self._mapping_event_id: BigInteger | None = None
+        self._mapped_event_id: BigInteger | None = None
         self._expr: str = p_expr
         self._component_oie_tuple: Tuple[AbstractOIE,...] = p_C
         self._interval_combinations: TwoTupleTS = p_F
@@ -40,7 +40,7 @@ class OIE(AbstractOIE):
         return self._id
 
     def set_mapping_event_id(self, p_event_id: BigInteger):
-        self._mapping_event_id = p_event_id
+        self._mapped_event_id = p_event_id
 
     def __eq__(self, other) -> bool:
         return self.C() == other.C() and self.F() == other.F() and self.I() == other.I() and self.A() == other.A()
