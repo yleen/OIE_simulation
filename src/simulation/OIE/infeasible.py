@@ -14,7 +14,7 @@ def get_custom_wildcard_matched_infeasible_2tupleTS(p_idxT: Tuple[int,...],
                                                     p_wildcard_infeasible_2tupleTS: TwoTupleTS,
                                                     p_wildcard_infeasible_idxT: Tuple[int,...]) -> TwoTupleTS:
     """
-    Get wildcard-invalid 2-tuple collection ordered by p_idxT
+    Get custom wildcard infeasible 2-tuple collection ordered by p_idxT
     Args:
         p_idxT (Tuple[int,...]): The index order tuple, { idx_1, idx_2, ..., idx_n }
         p_wildcard_infeasible_2tupleTS (TwoTupleTS): Source collection of wildcard invalid 2-tuples, { 2tupleT_1, 2tupleT_2, ..., 2tupleT_n }

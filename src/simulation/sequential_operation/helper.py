@@ -58,20 +58,20 @@ def has_duplicates(tup: Tuple) -> bool:
     return len(set(tup)) != len(tup)
 
 
-def gen_C(p_oieS: OIES, p_idxT: Tuple[int,...]):
+def gen_C(p_oieS: OIES, p_idxT: Tuple[int,...]) -> tuple[OIE,...]:
     C_list: List[OIE] = []
     for i in range(len(p_idxT)):
         C_list.append(p_oieS[p_idxT[i] - 1])
     return tuple(C_list)
 
-def gen_A(p_oieS: OIES, p_idxT: Tuple[int,...]):
+def gen_A(p_oieS: OIES, p_idxT: Tuple[int,...]) -> EventStarS:
     A_list: List[EventStar] = []
     for i in range(len(p_idxT)):
         A_list = A_list + p_oieS[p_idxT[i] - 1].A().list()
     return EventStarS(*A_list)
 
 
-def check_params(p_oieS: OIES, p_idxT: Tuple[int,...]):
+def check_params(p_oieS: OIES, p_idxT: Tuple[int,...]) -> None:
     if len(p_oieS) != len(p_idxT):
         raise ValueError("The length of p_OIE_S must be equal to the length of p_idxT.")
     if not check_idxT_border(p_idxT=p_idxT, p_lower_limit=1, p_upper_limit=len(p_idxT)):

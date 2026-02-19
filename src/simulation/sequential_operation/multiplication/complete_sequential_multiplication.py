@@ -67,7 +67,7 @@ def complete_sequential_multiplication(p_oieS: OIES,
     return oie_result
 
 
-def build_multiplication_res_expr(p_oieS: OIES, p_idxT: Tuple[int,...]):
+def build_multiplication_res_expr(p_oieS: OIES, p_idxT: Tuple[int,...]) -> str:
     oie_res_expr: str = f"\u2297("
     for i in range(len(p_idxT)):
         oie_res_expr += p_oieS[p_idxT[i] - 1].get_expr()

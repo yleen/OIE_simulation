@@ -5,22 +5,22 @@
 @date: 2025/2/12
 """
 
-from typing import Tuple, List
+from typing import Tuple, List, Set
 from simulation.base.structure import TwoTupleTS, TwoTupleS
 
 
 def get_bound_2tupleS(p_2tupleTS: TwoTupleTS) -> TwoTupleS | None:
     """
-    Get the bound 2-tuple from 2-tuple linguistic term set
+    Get the bound 2-tuple from a 2TupleTS instance
     Args:
-        p_2tupleTS (TwoTupleTS): source 2-tuple linguistic term set
+        p_2tupleTS (TwoTupleTS): source 2TupleTS instance
     Returns:
-        (TwoTupleS) bound 2-tuple. Return None if input is None
+        (TwoTupleS) bound 2-tuple, return None if input is None
     """
     if p_2tupleTS is None:
         return None
     bound_2tupleS_list: List[Tuple[any, any]] = []
-    bound_2tuple_map: set = set()
+    bound_2tuple_map: Set = set()
     for cur_2tupleT in p_2tupleTS.list():
         bound_2tuple: Tuple[float, float] = get_bound_2tuple(cur_2tupleT)
         if bound_2tuple not in bound_2tuple_map:
@@ -31,9 +31,9 @@ def get_bound_2tupleS(p_2tupleTS: TwoTupleTS) -> TwoTupleS | None:
 
 def get_bound_2tuple(p_2tupleT: Tuple[Tuple[float, float]]) -> Tuple[float, float] | None:
     """
-    (definition 19)Get the bound 2-tuple of a tuple of 2-tuples with a limited length.
+    (definition 19)Get the bound 2-tuple of a finite tuple of 2-tuples
     Args:
-        p_2tupleT (Tuple[Tuple[float, float]]): A _2TupleT instance with a limited length
+        p_2tupleT (Tuple[Tuple[float, float]]): A finite 2TupleT instance
     Returns:
         (Tuple[float, float]): Bound 2-tuple
     """
@@ -46,7 +46,6 @@ def get_bound_2tuple(p_2tupleT: Tuple[Tuple[float, float]]) -> Tuple[float, floa
             min_1st = cur_2tuple[0]
         if max_2nd < cur_2tuple[1]:
             max_2nd = cur_2tuple[1]
-
     return min_1st, max_2nd
 
 

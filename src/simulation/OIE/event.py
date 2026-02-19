@@ -1,5 +1,4 @@
 from sqlalchemy import BigInteger
-
 from util.snowflake import gen_snowflake_id
 
 

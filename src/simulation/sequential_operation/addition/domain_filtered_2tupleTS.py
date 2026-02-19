@@ -4,8 +4,8 @@
 @author li.zhong.yuan@outlook.com
 @date 2025/2/8
 """
-from typing import Tuple, List
 
+from typing import Tuple, List
 from simulation.base.structure import TwoTupleTS
 
 

@@ -73,7 +73,9 @@ def complete_sequential_addition(p_oieS: OIES,
     return oie_result
 
 
-def build_addition_res_expr(p_oieS: OIES, p_idxT: Tuple[int,...], p_domain_filtering_2tuple: Tuple[float, float]):
+def build_addition_res_expr(p_oieS: OIES,
+                            p_idxT: Tuple[int,...],
+                            p_domain_filtering_2tuple: Tuple[float, float]) -> str:
     oie_res_expr: str = f"\u2295|_{p_domain_filtering_2tuple[0]}^{p_domain_filtering_2tuple[1]}("
     for i in range(len(p_idxT)):
         oie_res_expr += p_oieS[p_idxT[i] - 1].get_expr()

@@ -26,6 +26,6 @@ class EventStarS(LiZhongYuanSet):
     pass
 
 
-def set_bijection(p_event: Event, p_event_star: EventStar):
+def set_bijection(p_event: Event, p_event_star: EventStar) -> None:
     p_event.set_bijective_event_star_id(p_event_star.get_bijective_event_id())
     p_event_star.set_bijective_event_id(p_event.get_bijective_event_star_id())
