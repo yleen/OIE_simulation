@@ -30,19 +30,19 @@ def get_2tuple_from_2tupleTS(p_2tupleTS: TwoTupleTS, p_idx: int, p_n: int) -> Tu
 
 
 # def check_idxT_border(p_idxT: Tuple[int,...], length: int) -> bool:
-def check_idxT_border(p_idxT: Tuple[int,...], lower_limit: int, upper_limit: int) -> bool:
+def check_idxT_border(p_idxT: Tuple[int,...], p_lower_limit: int, p_upper_limit: int) -> bool:
     """
     Check the upper and lower bounds of the index tuple
     Args:
         p_idxT (Tuple[int,...]): An index tuple
-        upper_limit (int): The upper limit
-        lower_limit (int): The lower limit
+        p_upper_limit (int): The upper limit
+        p_lower_limit (int): The lower limit
     Returns:
         (bool): Whether all indices are valid
     """
 
     for idx in p_idxT:
-        if not isinstance(idx, int) or idx < lower_limit or idx > upper_limit:
+        if not isinstance(idx, int) or idx < p_lower_limit or idx > p_upper_limit:
             return False
     return True
 
@@ -58,23 +58,23 @@ def has_duplicates(tup: Tuple) -> bool:
     return len(set(tup)) != len(tup)
 
 
-def gen_C(p_oieS: OIES, p_idxT: Tuple[int]):
+def gen_C(p_oieS: OIES, p_idxT: Tuple[int,...]):
     C_list: List[OIE] = []
     for i in range(len(p_idxT)):
         C_list.append(p_oieS[p_idxT[i] - 1])
     return tuple(C_list)
 
-def gen_A(p_oieS: OIES, p_idxT: Tuple[int]):
+def gen_A(p_oieS: OIES, p_idxT: Tuple[int,...]):
     A_list: List[EventStar] = []
     for i in range(len(p_idxT)):
         A_list = A_list + p_oieS[p_idxT[i] - 1].A().list()
     return EventStarS(*A_list)
 
 
-def check_params(p_oieS: OIES, p_idxT):
+def check_params(p_oieS: OIES, p_idxT: Tuple[int,...]):
     if len(p_oieS) != len(p_idxT):
         raise ValueError("The length of p_OIE_S must be equal to the length of p_idxT.")
-    if not check_idxT_border(p_idxT, 1, len(p_idxT)):
+    if not check_idxT_border(p_idxT=p_idxT, p_lower_limit=1, p_upper_limit=len(p_idxT)):
         raise ValueError("p_idxT error.")
 
 

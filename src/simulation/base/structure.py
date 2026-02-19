@@ -20,7 +20,7 @@ class LiZhongYuanSet:
     def __getitem__(self, index: int) -> Any:
         return self._list[index]
 
-    def __setitem__(self, index, value):
+    def __setitem__(self, index, value) -> None:
         self._list[index] = value
         self._dict[index + 1] = value
 
@@ -34,7 +34,7 @@ class LiZhongYuanSet:
         format_str += "}"
         return format_str
 
-    def __eq__(self, other):
+    def __eq__(self, other) -> bool:
         if len(self._list) != other.cardinality():
             return False
         for item in self._list:
@@ -47,7 +47,7 @@ class LiZhongYuanSet:
                 return False
         return True
 
-    def __len__(self):
+    def __len__(self) -> int:
         return len(self._list)
 
     def get(self, p_i: int) -> Any:
@@ -76,13 +76,13 @@ class LiZhongYuanSet:
                 return i
         return None
 
-    def dict(self):
+    def dict(self) -> Dict:
         return self._dict
 
     def cardinality(self) -> int:
         return len(self._list)
 
-    def list(self) -> List[Any]:
+    def list(self) -> List:
         return self._list
 
     def empty(self) -> bool:
@@ -94,7 +94,7 @@ class LiZhongYuanSet:
                 return True
         return False
 
-    def add(self, elem):
+    def add(self, elem) -> None:
         if self.has(tuple(elem)):
             return
         self._list.append(tuple(elem))
@@ -110,5 +110,4 @@ class TwoTupleSS(LiZhongYuanSet):
 
 class TwoTupleTS(LiZhongYuanSet):
     pass
-
 

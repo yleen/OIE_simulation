@@ -41,13 +41,13 @@ def f_domain_filtered_2tupleTS(p_2tupleTS: TwoTupleTS,
         p_left (object): The left border of a domain
         p_right (object): The right border of a domain
     Returns:
-        (_2TupleTS): The domain filtered subset
+        (TwoTupleTS): The domain filtered subset
     """
 
     domain_filtered_2tupleTS: TwoTupleTS = TwoTupleTS()
     tuple_len: int = 0
     for cur_2tupleT in p_2tupleTS:
-        if not Pred_is_2tupleT_in_Domain(cur_2tupleT, p_2tupleTS, p_left, p_right):
+        if not Pred_is_2tupleT_in_Domain(p_2tupleT=cur_2tupleT, p_2tupleTS=p_2tupleTS, p_left=p_left, p_right=p_right):
             continue
         tuple_len = len(cur_2tupleT)
         domain_filtered_2tupleTS.add(cur_2tupleT)

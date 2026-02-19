@@ -11,7 +11,7 @@ from typing import Tuple
 from sqlalchemy import BigInteger
 
 from simulation.base.structure import TwoTupleTS, TwoTupleS
-from simulation.oie.abstract_OIE import AbstractOIE
+from simulation.oie.abstract_oie import AbstractOIE
 from simulation.oie.event_star import EventStarS
 from simulation.oie.optional_intervals_event_set import OIES
 from util.snowflake import gen_snowflake_id

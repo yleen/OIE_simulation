@@ -7,11 +7,11 @@
 
 
 from typing import List, Tuple, Any, Set, Dict
-from simulation.oie.abstract_OIE import AbstractOIE
+from simulation.oie.abstract_oie import AbstractOIE
 from simulation.base.structure import LiZhongYuanSet, TwoTupleSS, TwoTupleTS
-from simulation.oie.cartesian_product import get_CP_of_2tupleSS
+from simulation.oie.naturally_isomorphic_to_cartesian_product import get_naturally_isomorphic_to_Cartesian_Product_for_2tupleSS
 from simulation.oie.event_star import EventStar
-from simulation.oie.infeasible import get_wildcard_matched_infeasible_2tupleTS
+from simulation.oie.infeasible import get_custom_wildcard_matched_infeasible_2tupleTS
 
 
 class OIES(LiZhongYuanSet):
@@ -56,9 +56,9 @@ class OIES(LiZhongYuanSet):
 
     def get_interval_2tupleSS(self) -> TwoTupleSS:
         """
-        (definition 11)Get the "set composed of interval 2-tuple's sets" of itself
+        (definition 11)Get the set composed of the I(3rd elements) of all OIE instance members
         Returns:
-            (TwoTupleSS): Set composed of interval 2-tuple's sets
+            (TwoTupleSS): set composed of the I(3rd elements) of all OIE instance members
         """
         return TwoTupleSS(*(item.I() for item in self._list))
 
@@ -69,12 +69,12 @@ class OIES(LiZhongYuanSet):
                                          p_wildcard_infeasible_2tupleTS: TwoTupleTS,
                                          p_oieT: Tuple[AbstractOIE,...]) -> None:
         """
-        Set _wildcard_unfeasible_Intvl_2tuple_TS and _unfeasible_OIE_tuple.
+        Set self._wildcard_infeasible_2tupleTS and self._infeasible_oieT.
         Args:
-            (p_wildcard_unfeasible_Intvl_2tuple_TS): Wildcard unfeasible Intvl2TupleTS instance
-            (p_OIE_tuple): A oie instance tuple
+            p_wildcard_infeasible_2tupleTS (TwoTupleTS): A wildcard infeasible interval 2TupleTS instance
+            p_oieT (Tuple[AbstractOIE,...]): A finite tuple of OIE instances
         Returns:
-            None
+            (None)
         """
         for cur_2tupleT in p_wildcard_infeasible_2tupleTS:
             if len(cur_2tupleT) != len(p_oieT):
@@ -87,9 +87,9 @@ class OIES(LiZhongYuanSet):
         self._wildcard_infeasible_2tupleTS = p_wildcard_infeasible_2tupleTS
         self._infeasible_oieT = p_oieT
 
-    def get_CP_of_Interval_2tupleSS(self,
-                                    p_interval_2tupleSS: TwoTupleSS,
-                                    p_idxT: Tuple[int,...] | None) -> TwoTupleTS:
+    def get_Nat_Iso_2_CP_of_interval_2tupleSS(self,
+                                              p_interval_2tupleSS: TwoTupleSS,
+                                              p_idxT: Tuple[int,...] | None) -> TwoTupleTS:
         """
         Compute Cartesian product of Intvl2TupleS for all elements in the set using operand index order p_op_idx_T.
         When p_op_idx_T is None, use default operand index order (1, 2, 3, ..., n)
@@ -104,12 +104,12 @@ class OIES(LiZhongYuanSet):
         if p_idxT is None:
             p_idxT = default_idxT
         elif tuple(sorted(p_idxT)) != default_idxT:
-            raise ValueError("Wrong p_op_idx_T !")
+            raise ValueError("Wrong p_idxT !")
         # ---------- 2 Get p_opr_idx order for expression operations, Cartesian product result of all Intvl2TupleS elements ----------
-        return get_CP_of_2tupleSS(p_2tupleSS=p_interval_2tupleSS, p_idxT=p_idxT)
+        return get_naturally_isomorphic_to_Cartesian_Product_for_2tupleSS(p_2tupleSS=p_interval_2tupleSS, p_idxT=p_idxT)
 
 
-    def get_infeasible_2tupleTS(self, p_idxT: Tuple[int,...]) -> TwoTupleTS:
+    def get_custom_infeasible_2tupleTS(self, p_idxT: Tuple[int,...]) -> TwoTupleTS:
         infeasible_oie_idx_list: List[any] = []
         for cur_oie in self._infeasible_oieT:
             cur_oie_idx: Any = self.get_dict_key(cur_oie)
@@ -117,9 +117,9 @@ class OIES(LiZhongYuanSet):
                 return TwoTupleTS()
             infeasible_oie_idx_list.append(cur_oie_idx)
 
-        return get_wildcard_matched_infeasible_2tupleTS(p_op_idxT=p_idxT,
-                                                        p_wildcard_infeasible_2tupleTS=self._wildcard_infeasible_2tupleTS,
-                                                        p_wildcard_infeasible_idxT=tuple(infeasible_oie_idx_list))
+        return get_custom_wildcard_matched_infeasible_2tupleTS(p_idxT=p_idxT,
+                                                               p_wildcard_infeasible_2tupleTS=self._wildcard_infeasible_2tupleTS,
+                                                               p_wildcard_infeasible_idxT=tuple(infeasible_oie_idx_list))
 
 
     def has_duplicated_instances(self) -> bool:
