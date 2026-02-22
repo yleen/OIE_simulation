@@ -15,7 +15,8 @@ from simulation.sequential_operation.helper import (print_finish_line,
                                                     check_params,
                                                     check_void_condition_validation,
                                                     gen_C,
-                                                    gen_A)
+                                                    gen_A, get_common_left_boundary_of_2tupleTS,
+                                                    get_common_right_boundary_of_2tupleTS)
 from simulation.oie.feasible import get_feasible_2tupleTS_from_Nat_Iso_2_CP
 from simulation.oie.optional_intervals_event import OIE, VoidOIE
 from simulation.oie.optional_intervals_event_set import OIES
@@ -46,7 +47,7 @@ def complete_sequential_addition(p_oieS: OIES,
     if not check_void_condition_validation(p_oieS=p_oieS):
         print_finish_line()
         return VoidOIE()
-    C: tuple[AbstractOIE,...] = gen_C(p_oieS=p_oieS, p_idxT=p_idxT)
+    C: tuple[OIE,...] = gen_C(p_oieS=p_oieS, p_idxT=p_idxT)
     A: EventStarS = gen_A(p_oieS=p_oieS, p_idxT=p_idxT)
 
     oie_res_expr: str = build_addition_res_expr(p_oieS=p_oieS,
@@ -61,6 +62,50 @@ def complete_sequential_addition(p_oieS: OIES,
     F: TwoTupleTS = f_domain_filtered_2tupleTS(p_2tupleTS=feasible_2tupleTS,
                                                p_left=p_domain_filtering_2tuple[0],
                                                p_right=p_domain_filtering_2tuple[1])
+    if F.empty():
+        print_finish_line()
+        return VoidOIE()
+
+    I: TwoTupleS = get_bound_2tupleS(p_2tupleTS=F)
+
+    oie_result: OIE = OIE(p_expr=oie_res_expr, p_C=C, p_F=F, p_I=I, p_A=A)
+    print_finish_line()
+
+    return oie_result
+
+
+# todo: test
+def natural_complete_sequential_addition(p_oieS: OIES,
+                                         p_idxT: Tuple[int,...]) -> OIE:
+    print(f"####################################################################")
+    print(f"##############  Natural complete sequential addition  ##############")
+    print(f"####################################################################\n")
+
+    print(f"1 Check parameters and handle.\n")
+
+    check_params(p_oieS=p_oieS, p_idxT=p_idxT)
+
+    if not check_void_condition_validation(p_oieS=p_oieS):
+        print_finish_line()
+        return VoidOIE()
+    C: tuple[OIE,...] = gen_C(p_oieS=p_oieS, p_idxT=p_idxT)
+    A: EventStarS = gen_A(p_oieS=p_oieS, p_idxT=p_idxT)
+
+    left_boundary = get_common_left_boundary_of_2tupleTS(p_oieS)
+    right_boundary = get_common_right_boundary_of_2tupleTS(p_oieS)
+
+    oie_res_expr: str = build_addition_res_expr(p_oieS=p_oieS,
+                                                p_idxT=p_idxT,
+                                                p_domain_filtering_2tuple=(left_boundary, right_boundary))
+
+    feasible_2tupleTS: TwoTupleTS = get_feasible_2tupleTS_from_Nat_Iso_2_CP(p_oieS=p_oieS, p_idxT=p_idxT)
+    if feasible_2tupleTS.empty():
+        print_finish_line()
+        return VoidOIE()
+
+    F: TwoTupleTS = f_domain_filtered_2tupleTS(p_2tupleTS=feasible_2tupleTS,
+                                               p_left=left_boundary,
+                                               p_right=right_boundary)
     if F.empty():
         print_finish_line()
         return VoidOIE()
