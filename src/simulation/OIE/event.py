@@ -3,10 +3,17 @@ from util.snowflake import gen_snowflake_id
 
 
 class Event:
-    def __init__(self, p_name: str) -> None:
+    def __init__(self, p_name: str,
+                 p_starting_timestamp: float | None = None,
+                 p_ending_timestamp: float | None = None) -> None:
         self._name: str = p_name
         self._id: BigInteger = gen_snowflake_id()
         self._mapped_event_star_id: BigInteger | None = None
+        if p_starting_timestamp is not None and p_ending_timestamp is not None:
+            assert_order_of_two_timestamps(p_starting_timestamp, p_ending_timestamp)
+        if p_starting_timestamp is None or p_ending_timestamp is None:
+            self._starting_timestamp: float | None = p_starting_timestamp
+            self._ending_timestamp: float | None = p_ending_timestamp
 
     def __str__(self) -> str:
         format_str: str = f"{self._name}(id:{self._id})"
@@ -20,3 +27,16 @@ class Event:
 
     def get_bijective_event_star_id(self) -> BigInteger:
         return self._mapped_event_star_id
+
+
+def assert_order_of_two_timestamps(p_starting_timestamp: float, p_ending_timestamp: float) -> None:
+    """
+    (Property 3) Assert the order of two timestamps.
+    Args:
+        p_starting_timestamp (float): The starting timestamp.
+        p_ending_timestamp (float): The ending timestamp.
+    Returns:
+        None
+    """
+    assert p_starting_timestamp < p_ending_timestamp
+
