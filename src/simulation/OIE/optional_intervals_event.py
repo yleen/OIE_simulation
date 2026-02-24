@@ -16,7 +16,7 @@ from util.snowflake import gen_snowflake_id
 
 class OIE(AbstractOIE):
     """
-    (Definition 6) Optional intervals event class
+    (Definition 6) Optional Intervals Event
     """
     def __init__(self,
                  p_expr: str | None,
@@ -86,16 +86,22 @@ class OIE(AbstractOIE):
 
 
 class AtomOIE(OIE):
+    """
+    (Definition 9) Atom OIE
+    """
     pass
 
 
 class CompOIE(OIE):
+    """
+    (Definition 10) Composite OIE
+    """
     pass
 
 
 class VoidOIE(OIE):
     """
-    Void oie class
+    (Definition 12) Void OIE
     """
     def __init__(self) -> None:
         super().__init__(p_expr='void_oie',

@@ -56,9 +56,9 @@ class OIES(LiZhongYuanSet):
 
     def get_interval_2tupleSS(self) -> TwoTupleSS:
         """
-        (definition 11)Get the set composed of the I(3rd elements) of all OIE instance members
+        (Definition 11) Get the set composed of the I(3rd elements) of all OIE instances
         Returns:
-            (TwoTupleSS): set composed of the I(3rd elements) of all OIE instance members
+            (TwoTupleSS): set composed of the I(3rd elements) of all OIE instances
         """
         return TwoTupleSS(*(item.I() for item in self._list))
 

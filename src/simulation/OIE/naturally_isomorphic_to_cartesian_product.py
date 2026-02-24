@@ -13,7 +13,7 @@ from simulation.base.structure import TwoTupleSS, TwoTupleTS, TwoTupleS
 def get_naturally_isomorphic_to_Cartesian_Product_for_2tupleSS(p_2tupleSS: TwoTupleSS,
                                                                p_idxT: Tuple[int,...]) -> TwoTupleTS:
     """
-    (definition 14) Get the naturally isomorphic to Cartesian product of each element of a 2TupleSS instance according to a certain index order.\n
+    (Definition 14) Get the naturally isomorphic to Cartesian product of each element of a 2TupleSS instance according to a certain index order.\n
     Let set p_2tupleSS = {
         2tupleS_1, 2tupleS_2, 2tupleS_3, ... , 2tupleS_n
     },

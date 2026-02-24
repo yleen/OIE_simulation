@@ -2,7 +2,7 @@
 @file event.py
 @brief: Event class.
 @author: li.zhong.yuan@outlook.com
-@date: 2025/2/24
+@date: 2026/2/24
 """
 
 from sqlalchemy import BigInteger
