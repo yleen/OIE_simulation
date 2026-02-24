@@ -40,7 +40,7 @@ def remove_infeasible_elements_from_2tupleTS(p_2tupleTS: TwoTupleTS,
 
 def get_feasible_2tupleTS_from_Nat_Iso_2_CP(p_oieS: OIES, p_idxT: tuple[int,...]) -> TwoTupleTS:
     """
-    (definition 16) Get the maximum feasible subset of the set that
+    (Definition 16) Get the maximum feasible subset of the set that
     is naturally isomorphic to the Cartesian Product of all
     I(3rd elements) of members of a finite OIES instance in
     an index order

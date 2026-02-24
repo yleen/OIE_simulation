@@ -79,12 +79,14 @@ def check_params(p_oieS: OIES, p_idxT: Tuple[int,...]) -> None:
 
 
 def check_void_condition_validation(p_oieS: OIES) -> bool:
+    # (Property 11) Sequential operations involving identical OIE instances result in a void OIE instance
     if p_oieS.has_duplicated_instances():
         print(f"There are duplicate elements, return oie_void")
         return False
     if p_oieS.has_intersection_of_atomEventEstarS():
         print(f"There are duplicate AtomEvent* instances, return oie_void")
         return False
+    # (Property 12) The sequential operations involving void OIE instances result oie_void
     if any(cur_oie.is_void() for cur_oie in p_oieS):
         print(f"There is at least one oie_void in p_oieS, return oie_void")
         return False

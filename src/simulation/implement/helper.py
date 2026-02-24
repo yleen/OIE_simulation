@@ -1,4 +1,9 @@
-
+"""
+@file helper.py
+@brief: Helper functions for implementation of OIE instances
+@author: li.zhong.yuan@outlook.com
+@date: 2026/2/25
+"""
 
 import random
 from simulation.base.structure import TwoTupleS, TwoTupleTS

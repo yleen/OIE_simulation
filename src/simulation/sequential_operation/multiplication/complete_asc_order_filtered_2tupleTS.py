@@ -10,7 +10,7 @@ from simulation.base.structure import TwoTupleTS
 
 def f_complete_asc_order_filtered_2tupleTS(p_2tupleTS: TwoTupleTS) -> TwoTupleTS:
     """
-    (definition 21)Get the complete ascending order filtered subset of a 2TupleTS instance
+    (Definition 21) Get the ascending order filtered subset of a 2TupleTS instance
     Args:
         p_2tupleTS (TwoTupleTS): A 2TupleTS instance
     Returns:

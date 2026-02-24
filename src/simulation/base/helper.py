@@ -69,11 +69,11 @@ def is_wildcard_matched(p_2tupleT: Tuple[Tuple | str, ...],
     return True
 
 
-def f_min_1_of_2tupleT(p_2tupleT: Tuple[Tuple,...]) -> object:
+def f_min_1st_of_2tupleT(p_2tupleT: Tuple[Tuple,...]) -> object:
     """
-    (definition 17/function 1)Obtain the minimum 1st item of a 2TupleT instance
+    (Definition 18/function 1)Get the minimum 1st item of a 2TupleT instance
     Args:
-        p_2tupleT (_2TupleT): An _2TupleT instance
+        p_2tupleT (Tuple[Tuple,...]): An 2TupleT instance
     Returns:
         (object): the minimum 1st item
     """
@@ -86,11 +86,11 @@ def f_min_1_of_2tupleT(p_2tupleT: Tuple[Tuple,...]) -> object:
     return min_1st
 
 
-def f_max_2_of_2tupleT(p_2tupleT: Tuple[Tuple,...]) -> object:
+def f_max_2nd_of_2tupleT(p_2tupleT: Tuple[Tuple,...]) -> object:
     """
-    (definition 17/function 2)Obtain the maximum 2nd item of a 2TupleT instance
+    (Definition 18/function 2)Get the maximum 2nd item of a 2TupleT instance
     Args:
-        p_2tupleT (_2TupleT): An _2TupleT instance
+        p_2tupleT (Tuple[Tuple,...]): An 2TupleT instance
     Returns:
         (object): the maximum 2nd item
     """

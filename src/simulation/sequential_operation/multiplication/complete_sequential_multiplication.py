@@ -25,7 +25,7 @@ from simulation.sequential_operation.multiplication.complete_asc_order_filtered_
 def complete_sequential_multiplication(p_oieS: OIES,
                                        p_idxT: Tuple[int,...]) -> OIE:
     """
-    (definition 23)Complete sequential multiplication
+    (Definition 22) Complete Sequential Multiplication
     Args:
         p_oieS (OIES): A OIES instance
         p_idxT(Tuple[int,...]): Index order of operands
