@@ -30,7 +30,6 @@ def get_2tuple_from_2tupleTS(p_2tupleTS: TwoTupleTS, p_idx: int, p_n: int) -> Tu
     return p_2tupleTS[p_idx - 1][p_n - 1]
 
 
-# def check_idxT_border(p_idxT: Tuple[int,...], length: int) -> bool:
 def check_idxT_border(p_idxT: Tuple[int,...], p_lower_limit: int, p_upper_limit: int) -> bool:
     """
     Check the upper and lower bounds of the index tuple
@@ -41,7 +40,6 @@ def check_idxT_border(p_idxT: Tuple[int,...], p_lower_limit: int, p_upper_limit:
     Returns:
         (bool): Whether all indices are valid
     """
-
     for idx in p_idxT:
         if not isinstance(idx, int) or idx < p_lower_limit or idx > p_upper_limit:
             return False

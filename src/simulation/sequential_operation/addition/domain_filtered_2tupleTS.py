@@ -9,12 +9,12 @@ from typing import Tuple, List
 from simulation.base.structure import TwoTupleTS
 
 
-def Pred_is_2tupleT_in_Domain(p_2tupleT: Tuple[Tuple[float, float]],
-                              p_2tupleTS: TwoTupleTS,
-                              p_left: float,
-                              p_right: float) -> bool:
+def Check_is_2tupleT_in_Domain(p_2tupleT: Tuple[Tuple[float, float]],
+                               p_2tupleTS: TwoTupleTS,
+                               p_left: float,
+                               p_right: float) -> bool:
     """
-    (definition 19/predicate)Determine whether a 2TupleT instance is a member of the domain-filtered subset of a 2TupleTS instance in a domain.
+    Check whether a 2TupleT instance is a member of the domain-filtered subset of a 2TupleTS instance in a domain.
     Args:
         p_2tupleT (Tuple[Tuple[float, float]]): A 2TupleT instance
         p_2tupleTS (TwoTupleTS): A 2TupleTS instance
@@ -35,7 +35,7 @@ def f_domain_filtered_2tupleTS(p_2tupleTS: TwoTupleTS,
                                p_left: float,
                                p_right: float) -> TwoTupleTS:
     """
-    (definition 18/function)Get the domain filtered subset of a 2TupleTS instance in a domain
+    (Definition 19) Get the domain filtered subset of a 2TupleTS instance in a domain
     Args:
         p_2tupleTS (TwoTupleTS): A 2TupleTS instance
         p_left (object): The left border of a domain
@@ -47,7 +47,7 @@ def f_domain_filtered_2tupleTS(p_2tupleTS: TwoTupleTS,
     domain_filtered_2tupleTS: TwoTupleTS = TwoTupleTS()
     tuple_len: int = 0
     for cur_2tupleT in p_2tupleTS:
-        if not Pred_is_2tupleT_in_Domain(p_2tupleT=cur_2tupleT, p_2tupleTS=p_2tupleTS, p_left=p_left, p_right=p_right):
+        if not Check_is_2tupleT_in_Domain(p_2tupleT=cur_2tupleT, p_2tupleTS=p_2tupleTS, p_left=p_left, p_right=p_right):
             continue
         tuple_len = len(cur_2tupleT)
         domain_filtered_2tupleTS.add(cur_2tupleT)

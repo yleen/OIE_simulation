@@ -27,11 +27,11 @@ def complete_sequential_addition(p_oieS: OIES,
                                  p_idxT: Tuple[int,...],
                                  p_domain_filtering_2tuple: Tuple[float, float]) -> OIE:
     """
-    (definition 21)Complete sequential addition
+    (definition 20)Complete sequential addition
     Args:
         p_oieS (OIES): A finite OIES instance
-        p_idxT(Tuple[int,...]): Index order of operands
-        p_domain_filtering_2tuple(Tuple[float, float]): A domain filtering 2Tuple instance
+        p_idxT (Tuple[int,...]): Index order of operands
+        p_domain_filtering_2tuple (Tuple[float, float]): A domain filtering 2Tuple instance
     Returns:
         (OIE): The result of complete sequential addition
     """
