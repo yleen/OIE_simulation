@@ -1,11 +1,20 @@
-from sqlalchemy import BigInteger
+"""
+@file event_star.py
+@brief: EventStar class.
+@author: li.zhong.yuan@outlook.com
+@date: 2025/2/24
+"""
 
+from sqlalchemy import BigInteger
 from simulation.base.structure import LiZhongYuanSet
 from simulation.oie.event import Event
 from util.snowflake import gen_snowflake_id
 
 
 class EventStar:
+    """
+    (Definition 4) Event with undetermined interval
+    """
     def __init__(self, p_name: str) -> None:
         self._name: str = p_name
         self._id: BigInteger = gen_snowflake_id()

@@ -1,10 +1,9 @@
 """
 @file optional_intervals_event.py
-@brief: oie, OIES, AtomOIE, AtomOIES and VoidOIE
+@brief: OIE, AtomOIE, CompOIE and VoidOIE
 @author: li.zhong.yuan@outlook.com
 @date: 2024/11/15
 """
-
 
 from __future__ import annotations
 from typing import Tuple
@@ -17,7 +16,7 @@ from util.snowflake import gen_snowflake_id
 
 class OIE(AbstractOIE):
     """
-    oie class
+    (Definition 6) Optional intervals event class
     """
     def __init__(self,
                  p_expr: str | None,
@@ -40,7 +39,14 @@ class OIE(AbstractOIE):
     def set_mapping_event_id(self, p_event_id: BigInteger) -> None:
         self._mapped_event_id = p_event_id
 
-    def __eq__(self, other) -> bool:
+    def __eq__(self, other: OIE) -> bool:
+        """
+        (Definition 8) Equality of OIE instances
+        Args:
+            other (OIE): Another OIE instance
+        Returns:
+            (bool) True if two OIE instances are equal, False otherwise
+        """
         return self.C() == other.C() and self.F() == other.F() and self.I() == other.I() and self.A() == other.A()
 
     def __str__(self) -> str:

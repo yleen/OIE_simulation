@@ -1,3 +1,10 @@
+"""
+@file event.py
+@brief: Event class.
+@author: li.zhong.yuan@outlook.com
+@date: 2025/2/24
+"""
+
 from sqlalchemy import BigInteger
 from util.snowflake import gen_snowflake_id
 
@@ -27,6 +34,11 @@ class Event:
 
     def get_bijective_event_star_id(self) -> BigInteger:
         return self._mapped_event_star_id
+
+    def set_starting_and_ending_timestamps(self, p_starting_timestamp: float, p_ending_timestamp: float):
+        assert_order_of_two_timestamps(p_starting_timestamp, p_ending_timestamp)
+        self._starting_timestamp = p_starting_timestamp
+        self._ending_timestamp = p_ending_timestamp
 
 
 def assert_order_of_two_timestamps(p_starting_timestamp: float, p_ending_timestamp: float) -> None:

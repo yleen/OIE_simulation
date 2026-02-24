@@ -5,7 +5,7 @@ from simulation.oie.optional_intervals_event import VoidOIE, OIE
 
 oie_void = VoidOIE()
 
-
+# todo: add ts te
 atomEvent_a: Event = Event("atomEvent_DrA")
 atomEventStar_a: EventStar = EventStar("atomEvent*_DrA")
 set_bijection(atomEvent_a, atomEventStar_a)

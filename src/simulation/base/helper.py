@@ -11,11 +11,12 @@ from simulation.base.structure import TwoTupleTS, TwoTupleS
 
 def get_bound_2tupleS(p_2tupleTS: TwoTupleTS) -> TwoTupleS | None:
     """
-    Get the bound 2-tuple from a 2TupleTS instance
+    (Property 5) Get the bound 2-tuple set from a 2TupleTS instance,
+    used for Property 5
     Args:
         p_2tupleTS (TwoTupleTS): source 2TupleTS instance
     Returns:
-        (TwoTupleS) bound 2-tuple, return None if input is None
+        (TwoTupleS) The bound 2-tuple set, return None if input is None
     """
     if p_2tupleTS is None:
         return None
@@ -31,11 +32,11 @@ def get_bound_2tupleS(p_2tupleTS: TwoTupleTS) -> TwoTupleS | None:
 
 def get_bound_2tuple(p_2tupleT: Tuple[Tuple[float, float]]) -> Tuple[float, float] | None:
     """
-    (definition 19)Get the bound 2-tuple of a finite tuple of 2-tuples
+    (Definition 7) Get the bound 2-tuple of a non-empty finite 2TupleT instance(tuple of 2-tuples)
     Args:
         p_2tupleT (Tuple[Tuple[float, float]]): A finite 2TupleT instance
     Returns:
-        (Tuple[float, float]): Bound 2-tuple
+        (Tuple[float, float]): The bound 2-tuple
     """
     if p_2tupleT is None or len(p_2tupleT) == 0:
         return None
