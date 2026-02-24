@@ -7,7 +7,7 @@
 
 from sqlalchemy import BigInteger
 from simulation.base.structure import LiZhongYuanSet
-from simulation.oie.event import Event
+from simulation.optional_intervals_event.event import Event
 from util.snowflake import gen_snowflake_id
 
 

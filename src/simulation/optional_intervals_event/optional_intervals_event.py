@@ -9,8 +9,8 @@ from __future__ import annotations
 from typing import Tuple
 from sqlalchemy import BigInteger
 from simulation.base.structure import TwoTupleTS, TwoTupleS
-from simulation.oie.abstract_oie import AbstractOIE
-from simulation.oie.event_star import EventStarS
+from simulation.optional_intervals_event.abstract_oie import AbstractOIE
+from simulation.optional_intervals_event.event_star import EventStarS
 from util.snowflake import gen_snowflake_id
 
 

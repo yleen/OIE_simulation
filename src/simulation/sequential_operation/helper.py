@@ -7,9 +7,9 @@
 
 from typing import Tuple, Any, List
 from simulation.base.structure import TwoTupleTS, TwoTupleS
-from simulation.oie.event_star import EventStarS, EventStar
-from simulation.oie.optional_intervals_event import OIE
-from simulation.oie.optional_intervals_event_set import OIES
+from simulation.optional_intervals_event.event_star import EventStarS, EventStar
+from simulation.optional_intervals_event.optional_intervals_event import OIE
+from simulation.optional_intervals_event.optional_intervals_event_set import OIES
 from test.instance import oie_void
 
 

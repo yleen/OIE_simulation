@@ -7,16 +7,16 @@
 
 
 from typing import List, Tuple, Any, Set, Dict
-from simulation.oie.abstract_oie import AbstractOIE
+from simulation.optional_intervals_event.abstract_oie import AbstractOIE
 from simulation.base.structure import LiZhongYuanSet, TwoTupleSS, TwoTupleTS
-from simulation.oie.naturally_isomorphic_to_cartesian_product import get_naturally_isomorphic_to_Cartesian_Product_for_2tupleSS
-from simulation.oie.event_star import EventStar
-from simulation.oie.infeasible import get_custom_wildcard_matched_infeasible_2tupleTS
+from simulation.optional_intervals_event.naturally_isomorphic_to_cartesian_product import get_naturally_isomorphic_to_Cartesian_Product_for_2tupleSS
+from simulation.optional_intervals_event.event_star import EventStar
+from simulation.optional_intervals_event.infeasible import get_custom_wildcard_matched_infeasible_2tupleTS
 
 
 class OIES(LiZhongYuanSet):
     """
-    oie set class
+    optional_intervals_event set class
     """
     def __init__(self, *arg):
         super().__init__(*arg)

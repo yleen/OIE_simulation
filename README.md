@@ -18,4 +18,4 @@ to structure these intervals.
 <https://www.alphaxiv.org/abs/2504.09471>
 
 # Code link
-[Definition 14](./src/simulation/oie/naturally_isomorphic_to_cartesian_product.py#13)
+[Definition 14](src/simulation/optional_intervals_event/naturally_isomorphic_to_cartesian_product.py#13)

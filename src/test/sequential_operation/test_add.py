@@ -6,7 +6,7 @@
 """
 from simulation.base.structure import TwoTupleTS
 from simulation.sequential_operation.addition.complete_sequential_addition import complete_sequential_addition
-from simulation.oie.optional_intervals_event_set import OIES
+from simulation.optional_intervals_event.optional_intervals_event_set import OIES
 from test.instance import atomOie_1, atomOie_2
 
 

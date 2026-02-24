@@ -13,7 +13,7 @@ from simulation.base.structure import TwoTupleS, TwoTupleTS, LiZhongYuanSet
 
 class AbstractOIE:
     """
-    An abstract class that defines the interface for oie
+    An abstract class that defines the interface for optional_intervals_event
     """
     def C(self) -> Tuple[AbstractOIE]:
         pass

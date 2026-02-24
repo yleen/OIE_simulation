@@ -1,7 +1,7 @@
 from simulation.base.structure import TwoTupleTS, TwoTupleS
-from simulation.oie.event import Event
-from simulation.oie.event_star import EventStar, set_bijection, EventStarS
-from simulation.oie.optional_intervals_event import VoidOIE, OIE
+from simulation.optional_intervals_event.event import Event
+from simulation.optional_intervals_event.event_star import EventStar, set_bijection, EventStarS
+from simulation.optional_intervals_event.optional_intervals_event import VoidOIE, OIE
 
 oie_void = VoidOIE()
 

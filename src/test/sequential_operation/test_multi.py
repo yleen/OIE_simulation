@@ -5,7 +5,7 @@
 @date 2025/1/28
 """
 from simulation.base.structure import TwoTupleTS
-from simulation.oie.optional_intervals_event_set import OIES
+from simulation.optional_intervals_event.optional_intervals_event_set import OIES
 from simulation.sequential_operation.multiplication.complete_sequential_multiplication import \
     complete_sequential_multiplication
 from test.instance import atomOie_1, atomOie_2

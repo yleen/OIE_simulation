@@ -6,7 +6,7 @@
 """
 from simulation.base.structure import TwoTupleTS, TwoTupleSS
 from simulation.base.helper import is_wildcard_matched
-from simulation.oie.optional_intervals_event_set import OIES
+from simulation.optional_intervals_event.optional_intervals_event_set import OIES
 
 
 def remove_infeasible_elements_from_2tupleTS(p_2tupleTS: TwoTupleTS,

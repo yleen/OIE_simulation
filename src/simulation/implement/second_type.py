@@ -2,8 +2,8 @@
 from typing import List
 
 from simulation.implement.helper import get_rand_2tupleT
-from simulation.oie.event import Event
-from simulation.oie.optional_intervals_event import OIE
+from simulation.optional_intervals_event.event import Event
+from simulation.optional_intervals_event.optional_intervals_event import OIE
 
 
 def second_type_implement(p_oie: OIE, p_events: List[Event]) -> None:

@@ -8,16 +8,16 @@
 from typing import Tuple
 from simulation.base.helper import get_bound_2tupleS
 from simulation.base.structure import TwoTupleS, TwoTupleTS
-from simulation.oie.abstract_oie import AbstractOIE
-from simulation.oie.event_star import EventStarS
+from simulation.optional_intervals_event.abstract_oie import AbstractOIE
+from simulation.optional_intervals_event.event_star import EventStarS
 from simulation.sequential_operation.helper import (print_finish_line,
                                                     check_params,
                                                     check_void_condition_validation,
                                                     gen_C,
                                                     gen_A)
-from simulation.oie.feasible import get_feasible_2tupleTS_from_Nat_Iso_2_CP
-from simulation.oie.optional_intervals_event import OIE, VoidOIE
-from simulation.oie.optional_intervals_event_set import OIES
+from simulation.optional_intervals_event.feasible import get_feasible_2tupleTS_from_Nat_Iso_2_CP
+from simulation.optional_intervals_event.optional_intervals_event import OIE, VoidOIE
+from simulation.optional_intervals_event.optional_intervals_event_set import OIES
 from simulation.sequential_operation.multiplication.complete_asc_order_filtered_2tupleTS import \
     f_complete_asc_order_filtered_2tupleTS
 

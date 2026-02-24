@@ -1,6 +1,6 @@
 from simulation.implement.helper import get_rand_2tuple
-from simulation.oie.event import Event
-from simulation.oie.optional_intervals_event import OIE
+from simulation.optional_intervals_event.event import Event
+from simulation.optional_intervals_event.optional_intervals_event import OIE
 
 
 def first_type_implement(p_oie: OIE, p_event: Event) -> None:
