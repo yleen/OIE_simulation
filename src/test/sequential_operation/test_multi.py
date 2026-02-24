@@ -4,6 +4,7 @@
 @author li.zhong.yuan@outlook.com
 @date 2025/1/28
 """
+
 from simulation.base.structure import TwoTupleTS
 from simulation.optional_intervals_event.optional_intervals_event_set import OIES
 from simulation.sequential_operation.multiplication.complete_sequential_multiplication import \

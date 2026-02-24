@@ -1,10 +1,9 @@
 """
 @file infeasible.py
-@brief Functions for unfeasible items.
+@brief Functions for infeasible items.
 @author li.zhong.yuan@outlook.com
 @date 2025/2/8
 """
-
 
 from typing import Any, List, Tuple, Dict
 from simulation.base.structure import TwoTupleTS
@@ -18,7 +17,7 @@ def get_custom_wildcard_matched_infeasible_2tupleTS(p_idxT: Tuple[int,...],
     Args:
         p_idxT (Tuple[int,...]): The index order tuple, { idx_1, idx_2, ..., idx_n }
         p_wildcard_infeasible_2tupleTS (TwoTupleTS): Source collection of wildcard invalid 2-tuples, { 2tupleT_1, 2tupleT_2, ..., 2tupleT_n }
-        p_wildcard_infeasible_idxT(Tuple[int,...]): The index tuple for source collection of wildcard invalid 2-tuples, { i1, i2, ..., in }
+        p_wildcard_infeasible_idxT (Tuple[int,...]): The index tuple for source collection of wildcard invalid 2-tuples, { i1, i2, ..., in }
     Returns:
         (TwoTupleTS): Ordered collection of invalid 2-tuples.
     """
@@ -41,4 +40,3 @@ def get_custom_wildcard_matched_infeasible_2tupleTS(p_idxT: Tuple[int,...],
         custom_wildcard_infeasible_2tupleTS.add(custom_wildcard_infeasible_2tuple_list)
     # ---------- 3 return result ----------
     return custom_wildcard_infeasible_2tupleTS
-

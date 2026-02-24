@@ -9,7 +9,7 @@
 from typing import List, Tuple, Any, Set, Dict
 from simulation.optional_intervals_event.abstract_oie import AbstractOIE
 from simulation.base.structure import LiZhongYuanSet, TwoTupleSS, TwoTupleTS
-from simulation.optional_intervals_event.naturally_isomorphic_to_cartesian_product import get_naturally_isomorphic_to_Cartesian_Product_for_2tupleSS
+from simulation.optional_intervals_event.naturally_isomorphic_to_cartesian_product import get_natural_isomorphism_to_Cartesian_Product_for_2tupleSS
 from simulation.optional_intervals_event.event_star import EventStar
 from simulation.optional_intervals_event.infeasible import get_custom_wildcard_matched_infeasible_2tupleTS
 
@@ -106,7 +106,7 @@ class OIES(LiZhongYuanSet):
         elif tuple(sorted(p_idxT)) != default_idxT:
             raise ValueError("Wrong p_idxT !")
         # ---------- 2 Get p_opr_idx order for expression operations, Cartesian product result of all Intvl2TupleS elements ----------
-        return get_naturally_isomorphic_to_Cartesian_Product_for_2tupleSS(p_2tupleSS=p_interval_2tupleSS, p_idxT=p_idxT)
+        return get_natural_isomorphism_to_Cartesian_Product_for_2tupleSS(p_2tupleSS=p_interval_2tupleSS, p_idxT=p_idxT)
 
 
     def get_custom_infeasible_2tupleTS(self, p_idxT: Tuple[int,...]) -> TwoTupleTS:

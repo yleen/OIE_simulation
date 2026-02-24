@@ -1,6 +1,6 @@
 """
 @file domain_filtered_2tupleTS.py
-@brief Predicate & function for domain filtered sub 2TupleTS instance.
+@brief Function for domain filtered sub 2TupleTS instance.
 @author li.zhong.yuan@outlook.com
 @date 2025/2/8
 """

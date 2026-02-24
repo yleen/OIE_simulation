@@ -40,25 +40,26 @@ def complete_sequential_addition(p_oieS: OIES,
     print(f"##################  Complete sequential addition  ##################")
     print(f"####################################################################\n")
 
-    print(f"1 Check parameters and handle.\n")
-
+    print(f"Check parameters and handle.\n")
     check_params(p_oieS=p_oieS, p_idxT=p_idxT)
-
     if not check_void_condition_validation(p_oieS=p_oieS):
         print_finish_line()
         return VoidOIE()
+
+    print(f"Step 1. Generate C and A.\n")
     C: tuple[OIE,...] = gen_C(p_oieS=p_oieS, p_idxT=p_idxT)
     A: EventStarS = gen_A(p_oieS=p_oieS, p_idxT=p_idxT)
-
     oie_res_expr: str = build_addition_res_expr(p_oieS=p_oieS,
                                                 p_idxT=p_idxT,
                                                 p_domain_filtering_2tuple=p_domain_filtering_2tuple)
 
+    print(f"Step 2. Get feasible 2tupleTS from natural isomorphism to Cartesian product.\n")
     feasible_2tupleTS: TwoTupleTS = get_feasible_2tupleTS_from_Nat_Iso_2_CP(p_oieS=p_oieS, p_idxT=p_idxT)
     if feasible_2tupleTS.empty():
         print_finish_line()
         return VoidOIE()
 
+    print(f"Step 3. Get domain filtered 2tupleTS as F.\n")
     F: TwoTupleTS = f_domain_filtered_2tupleTS(p_2tupleTS=feasible_2tupleTS,
                                                p_left=p_domain_filtering_2tuple[0],
                                                p_right=p_domain_filtering_2tuple[1])
@@ -66,6 +67,7 @@ def complete_sequential_addition(p_oieS: OIES,
         print_finish_line()
         return VoidOIE()
 
+    print(f"Step 4. Generate I.\n")
     I: TwoTupleS = get_bound_2tupleS(p_2tupleTS=F)
 
     oie_result: OIE = OIE(p_expr=oie_res_expr, p_C=C, p_F=F, p_I=I, p_A=A)
@@ -74,20 +76,19 @@ def complete_sequential_addition(p_oieS: OIES,
     return oie_result
 
 
-# todo: test
 def natural_complete_sequential_addition(p_oieS: OIES,
                                          p_idxT: Tuple[int,...]) -> OIE:
     print(f"####################################################################")
     print(f"##############  Natural complete sequential addition  ##############")
     print(f"####################################################################\n")
 
-    print(f"1 Check parameters and handle.\n")
-
+    print(f"Check parameters and handle.\n")
     check_params(p_oieS=p_oieS, p_idxT=p_idxT)
-
     if not check_void_condition_validation(p_oieS=p_oieS):
         print_finish_line()
         return VoidOIE()
+
+    print(f"Step 1. Generate C and A.\n")
     C: tuple[OIE,...] = gen_C(p_oieS=p_oieS, p_idxT=p_idxT)
     A: EventStarS = gen_A(p_oieS=p_oieS, p_idxT=p_idxT)
 
@@ -98,11 +99,13 @@ def natural_complete_sequential_addition(p_oieS: OIES,
                                                 p_idxT=p_idxT,
                                                 p_domain_filtering_2tuple=(left_boundary, right_boundary))
 
+    print(f"Step 2. Get feasible 2tupleTS from natural isomorphism to Cartesian product.\n")
     feasible_2tupleTS: TwoTupleTS = get_feasible_2tupleTS_from_Nat_Iso_2_CP(p_oieS=p_oieS, p_idxT=p_idxT)
     if feasible_2tupleTS.empty():
         print_finish_line()
         return VoidOIE()
 
+    print(f"Step 3. Get domain filtered 2tupleTS as F.\n")
     F: TwoTupleTS = f_domain_filtered_2tupleTS(p_2tupleTS=feasible_2tupleTS,
                                                p_left=left_boundary,
                                                p_right=right_boundary)
@@ -110,6 +113,7 @@ def natural_complete_sequential_addition(p_oieS: OIES,
         print_finish_line()
         return VoidOIE()
 
+    print(f"Step 4. Generate I.\n")
     I: TwoTupleS = get_bound_2tupleS(p_2tupleTS=F)
 
     oie_result: OIE = OIE(p_expr=oie_res_expr, p_C=C, p_F=F, p_I=I, p_A=A)

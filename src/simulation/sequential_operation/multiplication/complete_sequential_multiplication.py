@@ -37,28 +37,30 @@ def complete_sequential_multiplication(p_oieS: OIES,
     print(f"###############  Complete sequential multiplication  ###############")
     print(f"####################################################################\n")
 
-    print(f"1 Check parameters and handle.\n")
-
+    print(f"Check parameters and handle.\n")
     check_params(p_oieS=p_oieS, p_idxT=p_idxT)
-
     if not check_void_condition_validation(p_oieS=p_oieS):
         print_finish_line()
         return VoidOIE()
-    C: tuple[AbstractOIE, ...] = gen_C(p_oieS=p_oieS, p_idxT=p_idxT)
-    A: EventStarS = gen_A(p_oieS=p_oieS, p_idxT=p_idxT)
 
+    print(f"Step 1. Generate C and A.\n")
+    C: tuple[OIE, ...] = gen_C(p_oieS=p_oieS, p_idxT=p_idxT)
+    A: EventStarS = gen_A(p_oieS=p_oieS, p_idxT=p_idxT)
     oie_res_expr: str = build_multiplication_res_expr(p_oieS=p_oieS, p_idxT=p_idxT)
 
+    print(f"Step 2. Get feasible 2tupleTS from natural isomorphism to Cartesian product.\n")
     feasible_2tupleTS: TwoTupleTS = get_feasible_2tupleTS_from_Nat_Iso_2_CP(p_oieS=p_oieS, p_idxT=p_idxT)
     if feasible_2tupleTS.empty():
         print_finish_line()
         return VoidOIE()
 
+    print(f"Step 3. Get complete ascending ordered 2tupleTS as F.\n")
     F: TwoTupleTS = f_complete_asc_order_filtered_2tupleTS(p_2tupleTS=feasible_2tupleTS)
     if F.empty():
         print_finish_line()
         return VoidOIE()
 
+    print(f"Step 4. Generate I.\n")
     I: TwoTupleS = get_bound_2tupleS(p_2tupleTS=F)
 
     oie_result: OIE = OIE(p_expr=oie_res_expr, p_C=C, p_F=F, p_I=I, p_A=A)

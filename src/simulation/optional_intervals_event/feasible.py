@@ -4,6 +4,7 @@
 @author li.zhong.yuan@outlook.com
 @date 2025/2/8
 """
+
 from simulation.base.structure import TwoTupleTS, TwoTupleSS
 from simulation.base.helper import is_wildcard_matched
 from simulation.optional_intervals_event.optional_intervals_event_set import OIES

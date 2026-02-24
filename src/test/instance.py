@@ -1,3 +1,10 @@
+"""
+@file instance.py
+@brief Test instances.
+@author li.zhong.yuan@outlook.com
+@date 2026/2/24
+"""
+
 from simulation.base.structure import TwoTupleTS, TwoTupleS
 from simulation.optional_intervals_event.event import Event
 from simulation.optional_intervals_event.event_star import EventStar, set_bijection, EventStarS
@@ -5,7 +12,6 @@ from simulation.optional_intervals_event.optional_intervals_event import VoidOIE
 
 oie_void = VoidOIE()
 
-# todo: add ts te
 atomEvent_a: Event = Event("atomEvent_DrA")
 atomEventStar_a: EventStar = EventStar("atomEvent*_DrA")
 set_bijection(atomEvent_a, atomEventStar_a)

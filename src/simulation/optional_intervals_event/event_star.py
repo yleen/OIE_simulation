@@ -32,9 +32,20 @@ class EventStar:
 
 
 class EventStarS(LiZhongYuanSet):
+    """
+    Set of EventStar instances
+    """
     pass
 
 
 def set_bijection(p_event: Event, p_event_star: EventStar) -> None:
+    """
+    Set a bijection between an Event instance and an EventStar instance.
+    Args:
+        p_event (Event): Event instance
+        p_event_star (EventStar): EventStar instance
+    Returns:
+        None
+    """
     p_event.set_bijective_event_star_id(p_event_star.get_bijective_event_id())
     p_event_star.set_bijective_event_id(p_event.get_bijective_event_star_id())

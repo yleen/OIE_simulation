@@ -1,3 +1,10 @@
+"""
+@file snowflake.py
+@brief Snowflake ID generator.
+@author li.zhong.yuan@outlook.com
+@date 2026/2/24
+"""
+
 from typing import List
 from snowflake import SnowflakeGenerator
 from sqlalchemy import BigInteger
