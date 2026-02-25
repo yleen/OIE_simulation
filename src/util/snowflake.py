@@ -2,7 +2,7 @@
 @file snowflake.py
 @brief Snowflake ID generator.
 @author li.zhong.yuan@outlook.com
-@date 2026/2/24
+@date 2026/1/27
 """
 
 from typing import List
@@ -14,7 +14,7 @@ gen = SnowflakeGenerator(1)
 def gen_snowflake_id() -> BigInteger | None:
     return next(gen)
 
-def gen_snowflake_ids(count: int):
+def gen_snowflake_ids(count: int) -> List[BigInteger | None]:
     ids: List[BigInteger | None] = []
     for i in range(count):
         ids.append(gen_snowflake_id())

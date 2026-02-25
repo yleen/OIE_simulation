@@ -88,7 +88,7 @@ def f_min_1st_of_2tupleT(p_2tupleT: Tuple[Tuple,...]) -> object:
 
 def f_max_2nd_of_2tupleT(p_2tupleT: Tuple[Tuple,...]) -> object:
     """
-    (Definition 18/function 2)Get the maximum 2nd item of a 2TupleT instance
+    (Definition 18/function 2) Get the maximum 2nd item of a 2TupleT instance
     Args:
         p_2tupleT (Tuple[Tuple,...]): An 2TupleT instance
     Returns:

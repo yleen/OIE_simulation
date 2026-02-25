@@ -43,7 +43,7 @@ class Event:
 
 def assert_order_of_two_timestamps(p_starting_timestamp: float, p_ending_timestamp: float) -> None:
     """
-    (Property 3) Assert the order of two timestamps.
+    (Property 3) Ordering of starting timestamp and ending timestamp
     Args:
         p_starting_timestamp (float): The starting timestamp.
         p_ending_timestamp (float): The ending timestamp.

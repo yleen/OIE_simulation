@@ -43,7 +43,6 @@ def f_domain_filtered_2tupleTS(p_2tupleTS: TwoTupleTS,
     Returns:
         (TwoTupleTS): The domain filtered subset
     """
-
     domain_filtered_2tupleTS: TwoTupleTS = TwoTupleTS()
     tuple_len: int = 0
     for cur_2tupleT in p_2tupleTS:

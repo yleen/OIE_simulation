@@ -6,7 +6,6 @@
 """
 
 from typing import List
-
 from simulation.implement.helper import get_rand_2tupleT
 from simulation.optional_intervals_event.event import Event
 from simulation.optional_intervals_event.optional_intervals_event import OIE

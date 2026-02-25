@@ -111,8 +111,7 @@ class OIES(LiZhongYuanSet):
 
     def get_custom_infeasible_2tupleTS(self, p_idxT: Tuple[int,...]) -> TwoTupleTS:
         """
-        (Definition 15) Set of tuples of infeasible interval 2-tuples of all members
-        of a finite OIES instance under an index order
+        (Definition 15) Set of tuples of infeasible interval 2-tuples of all members of a finite OIES instance under an index order
         Args:
             p_idxT: (Tuple[int,...]): Index order
         Returns:
