@@ -42,7 +42,7 @@ Simulation code for paper ''Optional intervals event, sequential operation and t
 
 [**(Definition 21)** Get the ascending order filtered subset of a 2TupleTS instance](src/simulation/sequential_operation/multiplication/complete_asc_order_filtered_2tupleTS.py#L11)
 
-[**(Definition 22)** Complete Sequential Multiplication](src/simulation/sequential_operation/multiplication/complete_sequential_multiplication.py#  25)
+[**(Definition 22)** Complete Sequential Multiplication](src/simulation/sequential_operation/multiplication/complete_sequential_multiplication.py#L25)
 
 [**(Property 11)** Sequential operations involving identical OIE instances result in a void OIE instance](src/simulation/sequential_operation/helper.py#L82)
 
