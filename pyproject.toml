@@ -1,0 +1,21 @@
+[project]
+name = "oie-simulation"
+version = "0.1.0"
+description = "Simulation code for paper 'Optional intervals event, sequential operation and their applications in physics, computer science and applied mathematics'"
+requires-python = ">=3.10"
+dependencies = [
+    "matplotlib>=3.10.1",
+    "numpy>=2.2.3",
+    "pandas>=2.2.3",
+    "snowflake-id",
+    "sqlalchemy",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

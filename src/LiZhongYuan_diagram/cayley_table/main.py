@@ -293,7 +293,10 @@ def render_plot(p_data_frame: DataFrame,
     fig.tight_layout()
 
 
-if __name__ == '__main__':
+def run() -> None:
+    """
+    Entry point for generating and saving the Cayley table diagram.
+    """
 
     elements2 = '12'
     elements3 = '123'
@@ -389,3 +392,7 @@ if __name__ == '__main__':
                 p_err_elem='E')
 
     mpl.pyplot.savefig('pic.png')
+
+
+if __name__ == '__main__':
+    run()
