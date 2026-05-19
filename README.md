@@ -1,6 +1,6 @@
 # Introduction
 
-Simulation code for paper ''Optional Interval Event and Two n-ary Finitary Operations: An Algebraic Framework for Unifying Parallel-Serial Execution and Axiomatizing Simultaneity from an Epistemological Perspective''.
+Simulation code for paper ''Optional Intervals Event and Two n-ary Finitary Operations: An Algebraic Framework for Unifying Parallel-Serial Execution and Axiomatizing Simultaneity from an Epistemological Perspective''.
 
 
 # The paper
