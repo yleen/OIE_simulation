@@ -4,15 +4,15 @@
 @author: li.zhong.yuan@outlook.com
 @date: 2025/1/23
 """
-
-from test.sequential_operation.test_add import test_addition_valid_1
-from test.sequential_operation.test_multi import test_multiplication_valid_1
-from LiZhongYuan_diagram.cayley_table.main import run as run_cayley_table
+from test.full_CSA_diagram.generate import run
+from test.sequence_operation.test_add import test_addition_valid_1
+from test.sequence_operation.test_multi import test_multiplication_valid_1
 
 if __name__ == '__main__':
 
-    test_addition_valid_1()
+    # 1. For OIE and Complete Sequence Addition and Complete Sequence Multiplication
+    # test_addition_valid_1()
+    # test_multiplication_valid_1()
 
-    test_multiplication_valid_1()
-
-    run_cayley_table()
+    # 2. For Full CSA Diagram
+    run()

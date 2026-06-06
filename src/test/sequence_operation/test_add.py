@@ -6,7 +6,7 @@
 """
 
 from simulation.base.structure import TwoTupleTS
-from simulation.sequential_operation.addition.complete_sequential_addition import complete_sequential_addition
+from simulation.sequence_operation.addition.complete_sequence_addition import complete_sequence_addition
 from simulation.optional_intervals_event.optional_intervals_event_set import OIES
 from test.instance import atomOie_1, atomOie_2
 
@@ -21,7 +21,7 @@ def test_addition_with_identical_operands():
     oieS.set_wildcard_infeasible_2tupleTS(infeasible_2tupleTS, (atomOie_1, atomOie_1))
     # ---------- 3 Complete Sequential Addition ----------
     domain_filtering_2tuple = (1, 5)
-    oie_res = complete_sequential_addition(oieS, (1, 2), domain_filtering_2tuple)
+    oie_res = complete_sequence_addition(oieS, (1, 2), domain_filtering_2tuple)
     print(f"oie_res: {str(oie_res)}\n")
 
 
@@ -32,7 +32,7 @@ def test_addition_valid_1():
     oieS.set_wildcard_infeasible_2tupleTS(infeasible_2tupleTS, (atomOie_1, atomOie_1))
 
     domain_filtering_2tuple = (1, 5)
-    oie_res = complete_sequential_addition(oieS, (1, 2), domain_filtering_2tuple)
+    oie_res = complete_sequence_addition(oieS, (1, 2), domain_filtering_2tuple)
 
     print(f"oie_res: {str(oie_res)}\n")
 

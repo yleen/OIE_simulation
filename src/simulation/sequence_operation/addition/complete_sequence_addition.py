@@ -1,5 +1,5 @@
 """
-@file complete_sequential_addition.py
+@file complete_sequence_addition.py
 @brief Complete sequential addition.
 @author li.zhong.yuan@outlook.com
 @date 2025/2/8
@@ -11,7 +11,7 @@ from simulation.base.helper import get_bound_2tupleS
 from simulation.base.structure import TwoTupleS, TwoTupleTS
 from simulation.optional_intervals_event.abstract_oie import AbstractOIE
 from simulation.optional_intervals_event.event_star import EventStarS
-from simulation.sequential_operation.helper import (print_finish_line,
+from simulation.sequence_operation.helper import (print_finish_line,
                                                     check_params,
                                                     check_void_condition_validation,
                                                     gen_C,
@@ -20,20 +20,20 @@ from simulation.sequential_operation.helper import (print_finish_line,
 from simulation.optional_intervals_event.feasible import get_feasible_2tupleTS_from_Nat_Iso_2_CP
 from simulation.optional_intervals_event.optional_intervals_event import OIE, VoidOIE
 from simulation.optional_intervals_event.optional_intervals_event_set import OIES
-from simulation.sequential_operation.addition.domain_filtered_2tupleTS import f_domain_filtered_2tupleTS
+from simulation.sequence_operation.addition.domain_filtered_2tupleTS import f_domain_filtered_2tupleTS
 
 
-def complete_sequential_addition(p_oieS: OIES,
-                                 p_idxT: Tuple[int,...],
-                                 p_domain_filtering_2tuple: Tuple[float, float]) -> OIE:
+def complete_sequence_addition(p_oieS: OIES,
+                               p_idxT: Tuple[int,...],
+                               p_domain_filtering_2tuple: Tuple[float, float]) -> OIE:
     """
-    (Definition 20) Complete Sequential Addition
+    (Definition 20) Complete Sequence Addition
     Args:
         p_oieS (OIES): A finite OIES instance
         p_idxT (Tuple[int,...]): Index order of operands
         p_domain_filtering_2tuple (Tuple[float, float]): A domain filtering 2Tuple instance
     Returns:
-        (OIE): The result of complete sequential addition
+        (OIE): The result of complete sequence addition
     """
 
     print(f"####################################################################")
@@ -76,8 +76,8 @@ def complete_sequential_addition(p_oieS: OIES,
     return oie_result
 
 
-def natural_complete_sequential_addition(p_oieS: OIES,
-                                         p_idxT: Tuple[int,...]) -> OIE:
+def natural_complete_sequence_addition(p_oieS: OIES,
+                                       p_idxT: Tuple[int,...]) -> OIE:
     """
     (Definition 24) Natural Complete Sequential Addition
     Args:
