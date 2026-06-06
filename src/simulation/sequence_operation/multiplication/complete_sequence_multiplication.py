@@ -1,6 +1,6 @@
 """
 @file complete_sequence_multiplication.py
-@brief Complete sequence multiplication.
+@brief Complete sequential multiplication.
 @author li.zhong.yuan@outlook.com
 @date 2025/2/8
 """
@@ -23,7 +23,7 @@ from simulation.sequence_operation.multiplication.complete_asc_order_filtered_2t
 
 
 def complete_sequence_multiplication(p_oieS: OIES,
-                                       p_idxT: Tuple[int,...]) -> OIE:
+                                     p_idxT: Tuple[int,...]) -> OIE:
     """
     (Definition 22) Complete Sequence Multiplication
     Args:

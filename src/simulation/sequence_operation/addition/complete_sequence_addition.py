@@ -1,6 +1,6 @@
 """
 @file complete_sequence_addition.py
-@brief Complete sequence addition.
+@brief Complete sequential addition.
 @author li.zhong.yuan@outlook.com
 @date 2025/2/8
 """
@@ -24,8 +24,8 @@ from simulation.sequence_operation.addition.domain_filtered_2tupleTS import f_do
 
 
 def complete_sequence_addition(p_oieS: OIES,
-                                 p_idxT: Tuple[int,...],
-                                 p_domain_filtering_2tuple: Tuple[float, float]) -> OIE:
+                               p_idxT: Tuple[int,...],
+                               p_domain_filtering_2tuple: Tuple[float, float]) -> OIE:
     """
     (Definition 20) Complete Sequence Addition
     Args:
@@ -37,7 +37,7 @@ def complete_sequence_addition(p_oieS: OIES,
     """
 
     print(f"####################################################################")
-    print(f"##################  Complete sequence addition  ##################")
+    print(f"##################  Complete sequential addition  ##################")
     print(f"####################################################################\n")
 
     print(f"Check parameters and handle.\n")
@@ -77,17 +77,17 @@ def complete_sequence_addition(p_oieS: OIES,
 
 
 def natural_complete_sequence_addition(p_oieS: OIES,
-                                         p_idxT: Tuple[int,...]) -> OIE:
+                                       p_idxT: Tuple[int,...]) -> OIE:
     """
-    (Definition 24) Natural Complete Sequence Addition
+    (Definition 24) Natural Complete Sequential Addition
     Args:
         p_oieS (OIES): A finite OIES instance
         p_idxT (Tuple[int,...]): Index order of operands
     Returns:
-        (OIE): The result of natural complete sequence addition
+        (OIE): The result of natural complete sequential addition
     """
     print(f"####################################################################")
-    print(f"##############  Natural complete sequence addition  ##############")
+    print(f"##############  Natural complete sequential addition  ##############")
     print(f"####################################################################\n")
 
     print(f"Check parameters and handle.\n")
