@@ -3,6 +3,7 @@ from typing import List
 import numpy as np
 import pandas as pd
 import matplotlib as mpl
+import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 from pandas.core.interchange.dataframe_protocol import DataFrame
 
@@ -241,7 +242,7 @@ def render_plot(p_data_frame: DataFrame,
     if p_dpi is not None:
         p_mpl.rcParams["figure.dpi"] = p_dpi
 
-    fig, ax = p_mpl.pyplot.subplots()
+    fig, ax = plt.subplots()
 
     ax.spines['top'].set_linewidth(0)
     ax.spines['bottom'].set_linewidth(0)
@@ -282,7 +283,7 @@ def render_plot(p_data_frame: DataFrame,
                    labelbottom=False)
 
     # Rotate the tick labels and set their alignment.
-    p_mpl.pyplot.setp(ax.get_xticklabels(),
+    plt.setp(ax.get_xticklabels(),
                       rotation=-70,
                       ha="right",
                       va="center_baseline",

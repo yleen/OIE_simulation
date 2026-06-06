@@ -1,5 +1,6 @@
 from typing import List
 import matplotlib as mpl
+import matplotlib.pyplot as plt
 from pandas import DataFrame
 
 from fullCsaDiagram.diagram_generator import gen_binomial_theorem_collection, gen_all_combos, init_data_frame, \
@@ -104,4 +105,4 @@ def run() -> None:
                 p_no_tick_marks=no_tick_marks,
                 p_err_elem='E')
 
-    mpl.pyplot.savefig('../pics/test_pic.png')
+    plt.savefig('../pics/test_pic.png')
