@@ -7,7 +7,34 @@ from fullCsaDiagram.diagram_generator import gen_binomial_theorem_collection, ge
     build_data_frame, render_plot
 
 
-def run() -> None:
+def test_2d_generation() -> None:
+    elements2 = '12'
+    err_elem_mark = 'E'
+    dpi: int = 200
+    font_size: float = 5
+    no_tick_marks: bool = False
+    binomial_theorem_collection: List[List[str]] \
+        = gen_binomial_theorem_collection(p_elements=elements2,
+                                          p_err_elem_mark=err_elem_mark)
+    headers: List[str] = gen_all_combos(binomial_theorem_collection)
+
+    data_frame: DataFrame = init_data_frame(p_table_headers=headers)
+
+    build_data_frame(p_data_frame=data_frame,
+                     p_err_elem=err_elem_mark)
+
+    render_plot(p_data_frame=data_frame,
+                p_mpl=mpl,
+                p_dpi=dpi,
+                p_font_size=font_size,
+                p_no_tick_marks=no_tick_marks,
+                p_err_elem='E')
+
+    plt.savefig('../pics/test_pic.png')
+
+
+
+def test_full_CSA_generation() -> None:
     """
     Entry point for generating and saving the Cayley table diagram.
     """
@@ -21,7 +48,7 @@ def run() -> None:
     elements8 = '12345678'
     elements9 = '123456789'
 
-    zero_elem_mark = '0'
+    # zero_elem_mark = '0'
     err_elem_mark = 'E'
 
     # # 2 OIEs
@@ -37,13 +64,10 @@ def run() -> None:
 
     # # 5 OIEs
     dpi: int = 500
-    contain_zero = False
     font_size: float = 4
     no_tick_marks: bool = False
     binomial_theorem_collection: List[List[str]] \
         = gen_binomial_theorem_collection(p_elements=elements5,
-                                          p_contain_zero=contain_zero,
-                                          p_zero_elem_mark=zero_elem_mark,
                                           p_err_elem_mark=err_elem_mark)
 
     # 6 OIEs
@@ -95,7 +119,6 @@ def run() -> None:
     data_frame: DataFrame = init_data_frame(p_table_headers=headers)
 
     build_data_frame(p_data_frame=data_frame,
-                     p_zero_elem=zero_elem_mark,
                      p_err_elem=err_elem_mark)
 
     render_plot(p_data_frame=data_frame,
