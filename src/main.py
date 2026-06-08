@@ -16,6 +16,6 @@ if __name__ == '__main__':
 
     # 2. For Full CSA Diagram
     dim = 5
-    file_path = '../pics/pic5.png'
+    file_path = '../pics/gen5.png'
     void_elem = '0'
     test_full_CSA_generation(dim, file_path, void_elem)
