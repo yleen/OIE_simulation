@@ -45,13 +45,11 @@ def combination_merge(p_combination1, p_combination2) -> str:
 def gen_binomial_theorem_collection(p_elements: str,
                                     # p_contain_zero: bool,
                                     # p_zero_elem_mark: str,
-                                    p_err_elem_mark: str) -> List[List[str]]:
+                                    p_zero_elem_mark: str) -> List[List[str]]:
     """
     Generate binomial theorem type collection
     @param p_elements: elements
-    @param p_contain_zero: verify includes zero
     @param p_zero_elem_mark: zero element
-    @param p_err_elem_mark: invalid OIE mark
     @return: binomial theorem type collection
     """
 
@@ -61,7 +59,7 @@ def gen_binomial_theorem_collection(p_elements: str,
     # if p_contain_zero:
     #     binomial_theorem_collection: List[List[str]] = [[p_zero_elem_mark]]
 
-    binomial_theorem_collection.append([p_err_elem_mark])
+    binomial_theorem_collection.append([p_zero_elem_mark])
 
     for i in range(len(p_elements)):
         cur_comb_and_next_start_list: List[dict] = []
@@ -194,7 +192,7 @@ def gen_sub_combinations_data_recur(combinations_and_pivots_cache,
 
 
 def build_data_frame(p_data_frame: DataFrame,
-                     p_err_elem: str) -> None:
+                     p_zero_elem: str) -> None:
     """
     p_data_frame creator
     @param p_data_frame: DataFrame instance
@@ -203,13 +201,13 @@ def build_data_frame(p_data_frame: DataFrame,
     """
     for row in p_data_frame.index:
         for col in p_data_frame.columns:
-            if row == p_err_elem or col == p_err_elem:
-                p_data_frame.loc[row, col] = p_err_elem
+            if row == p_zero_elem or col == p_zero_elem:
+                p_data_frame.loc[row, col] = p_zero_elem
                 continue
             if has_no_common_element(row, col):
                 p_data_frame.loc[row, col] = combination_merge(row, col)
             else:
-                p_data_frame.loc[row, col] = p_err_elem
+                p_data_frame.loc[row, col] = p_zero_elem
 
 
 def render_plot(p_data_frame: DataFrame,
@@ -217,7 +215,7 @@ def render_plot(p_data_frame: DataFrame,
                 p_dpi: int,
                 p_font_size: float,
                 p_no_tick_marks: bool,
-                p_err_elem: str) -> None:
+                p_zero_elem: str) -> None:
     """
     Render the plot
     @param p_data_frame: graph frame
@@ -250,7 +248,7 @@ def render_plot(p_data_frame: DataFrame,
     for row_idx in range(p_data_frame.index.size):
         row_colors: List[int] = []
         for col_idx in range(p_data_frame.columns.size):
-            if p_data_frame.values[row_idx][col_idx] == p_err_elem:
+            if p_data_frame.values[row_idx][col_idx] == p_zero_elem:
                 row_colors.append(0)
             else:
 #                row_colors.append(100)

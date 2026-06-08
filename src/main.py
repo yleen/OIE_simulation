@@ -15,4 +15,7 @@ if __name__ == '__main__':
     # test_multiplication_valid_1()
 
     # 2. For Full CSA Diagram
-    test_full_CSA_generation()
+    dim = 5
+    file_path = '../pics/pic5.png'
+    void_elem = '0'
+    test_full_CSA_generation(dim, file_path, void_elem)
