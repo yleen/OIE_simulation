@@ -8,7 +8,6 @@
 from typing import Tuple
 from simulation.base.helper import get_bound_2tupleS
 from simulation.base.structure import TwoTupleS, TwoTupleTS
-from simulation.optional_intervals_event.abstract_oie import AbstractOIE
 from simulation.optional_intervals_event.event_star import EventStarS
 from simulation.sequence_operation.helper import (print_finish_line,
                                                     check_params,

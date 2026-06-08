@@ -1,9 +1,16 @@
-from typing import List
+"""
+@file diagram_generator.py
+@brief: Full CSA diagram functions
+@author: li.zhong.yuan@outlook.com
+@date: 2026/6/8
+"""
+
 
 import numpy as np
 import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+from typing import List
 from matplotlib.colors import ListedColormap
 from pandas.core.interchange.dataframe_protocol import DataFrame
 
@@ -43,8 +50,6 @@ def combination_merge(p_combination1, p_combination2) -> str:
 
 
 def gen_binomial_theorem_collection(p_elements: str,
-                                    # p_contain_zero: bool,
-                                    # p_zero_elem_mark: str,
                                     p_zero_elem_mark: str) -> List[List[str]]:
     """
     Generate binomial theorem type collection
@@ -55,9 +60,6 @@ def gen_binomial_theorem_collection(p_elements: str,
 
     comb_and_next_start_collection: List[List[dict]] = []
     binomial_theorem_collection: List[List[str]] = []
-
-    # if p_contain_zero:
-    #     binomial_theorem_collection: List[List[str]] = [[p_zero_elem_mark]]
 
     binomial_theorem_collection.append([p_zero_elem_mark])
 
@@ -196,7 +198,7 @@ def build_data_frame(p_data_frame: DataFrame,
     """
     p_data_frame creator
     @param p_data_frame: DataFrame instance
-    @param p_err_elem: err element
+    @param p_zero_elem: zero element
     @return:
     """
     for row in p_data_frame.index:
@@ -223,7 +225,7 @@ def render_plot(p_data_frame: DataFrame,
     @param p_dpi: dots per inch
     @param p_font_size: font size
     @param p_no_tick_marks: whether it has a tick mark
-    @param p_err_elem: Error OIE's mark
+    @param p_zero_elem: Void OIE's mark
     @return: None
     """
 
