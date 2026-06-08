@@ -1,6 +1,6 @@
 # Introduction
 
-Simulation code for paper ''Optional intervals event, sequence operation and their applications in physics, computer science and applied mathematics''.
+Simulation code for paper ''Optional Intervals Event and Two n-ary Finitary Operations: An Algebraic Framework for Unifying Parallel-Serial Execution and Axiomatizing Simultaneity from an Epistemological Perspective''.
 
 
 # The paper
