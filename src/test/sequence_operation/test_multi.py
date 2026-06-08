@@ -1,6 +1,6 @@
 """
 @file test_multi.py
-@brief Test cases of complete sequential multiplication.
+@brief Test cases of complete sequence multiplication.
 @author li.zhong.yuan@outlook.com
 @date 2025/1/28
 """

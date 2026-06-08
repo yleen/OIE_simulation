@@ -1,6 +1,6 @@
 """
 @file test_add.py
-@brief Test cases of complete sequential addition.
+@brief Test cases of complete sequence addition.
 @author li.zhong.yuan@outlook.com
 @date 2025/1/27
 """
@@ -19,7 +19,7 @@ def test_addition_with_identical_operands():
     infeasible_2tupleTS = TwoTupleTS()
     # 2.2 Assign to the member of OIES instance
     oieS.set_wildcard_infeasible_2tupleTS(infeasible_2tupleTS, (atomOie_1, atomOie_1))
-    # ---------- 3 Complete Sequential Addition ----------
+    # ---------- 3 Complete Sequence Addition ----------
     domain_filtering_2tuple = (1, 5)
     oie_res = complete_sequence_addition(oieS, (1, 2), domain_filtering_2tuple)
     print(f"oie_res: {str(oie_res)}\n")

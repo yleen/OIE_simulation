@@ -1,9 +1,11 @@
 """
 @file: main.py
-@brief: Test cases of complete sequential addition & complete sequential multiplication
+@brief: Test cases of complete sequence addition & complete sequence multiplication
 @author: li.zhong.yuan@outlook.com
 @date: 2025/1/23
 """
+
+
 from test.full_CSA_diagram.generate import test_full_CSA_generation
 from test.sequence_operation.test_add import test_addition_valid_1
 from test.sequence_operation.test_multi import test_multiplication_valid_1

@@ -1,6 +1,6 @@
 """
 @file complete_sequence_addition.py
-@brief Complete sequential addition.
+@brief Complete Sequence Addition.
 @author li.zhong.yuan@outlook.com
 @date 2025/2/8
 """
@@ -37,7 +37,7 @@ def complete_sequence_addition(p_oieS: OIES,
     """
 
     print(f"####################################################################")
-    print(f"##################  Complete sequential addition  ##################")
+    print(f"##################  Complete Sequence Addition  ##################")
     print(f"####################################################################\n")
 
     print(f"Check parameters and handle.\n")
@@ -79,15 +79,15 @@ def complete_sequence_addition(p_oieS: OIES,
 def natural_complete_sequence_addition(p_oieS: OIES,
                                        p_idxT: Tuple[int,...]) -> OIE:
     """
-    (Definition 24) Natural Complete Sequential Addition
+    (Definition 24) Natural Complete Sequence Addition
     Args:
         p_oieS (OIES): A finite OIES instance
         p_idxT (Tuple[int,...]): Index order of operands
     Returns:
-        (OIE): The result of natural complete sequential addition
+        (OIE): The result of natural complete sequence addition
     """
     print(f"####################################################################")
-    print(f"##############  Natural complete sequential addition  ##############")
+    print(f"##############  Natural complete sequence addition  ##############")
     print(f"####################################################################\n")
 
     print(f"Check parameters and handle.\n")

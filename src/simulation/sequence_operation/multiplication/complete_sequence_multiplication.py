@@ -1,6 +1,6 @@
 """
 @file complete_sequence_multiplication.py
-@brief Complete sequential multiplication.
+@brief Complete Sequence Multiplication.
 @author li.zhong.yuan@outlook.com
 @date 2025/2/8
 """
@@ -33,7 +33,7 @@ def complete_sequence_multiplication(p_oieS: OIES,
     """
 
     print(f"####################################################################")
-    print(f"###############  Complete sequence multiplication  ###############")
+    print(f"###############  Complete Sequence Multiplication  ###############")
     print(f"####################################################################\n")
 
     print(f"Check parameters and handle.\n")
