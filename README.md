@@ -59,6 +59,20 @@ Simulation code for paper ''Optional intervals event, sequence operation and the
 
 [**(Build Full CSA diagram)**](src/test/full_CSA_diagram/generate.py#138)
 
+# Pictures
+## 8-Dimensions full CSA diagram
+<img src="./pics/gen8.png">
+
+## 7-Dimensions full CSA diagram
+<img src="./pics/gen7.png">
+
+## 6-Dimensions full CSA diagram
+<img src="./pics/gen6.png">
+
+## 5-Dimensions full CSA diagram
+<img src="./pics/gen5.png">
+
+
 # Entry function
 [main.py](src/main.py#L11)
 
